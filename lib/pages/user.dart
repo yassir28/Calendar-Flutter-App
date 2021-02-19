@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:menstruating/pages/homepage.dart';
-import 'package:menstruating/pages/new_user.dart';
-import 'package:menstruating/pages/new_user2.dart';
-import 'package:menstruating/pages/new_user3.dart';
+import 'package:menstruating/pages/new_user_components/new_user.dart';
+import 'package:menstruating/pages/new_user_components/new_user2.dart';
+import 'package:menstruating/pages/new_user_components/new_user3.dart';
 
 class User extends StatefulWidget {
   @override

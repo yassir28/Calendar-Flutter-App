@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:menstruating/constants.dart';
 import 'package:menstruating/pages/user.dart';
 import 'package:menstruating/pages/welcome.dart';
-import 'package:menstruating/pages/new_user.dart';
 import 'package:menstruating/pages/homepage.dart';
 import 'package:menstruating/pages/restoredata.dart';
 
@@ -20,7 +19,6 @@ class MyApp extends StatelessWidget {
       initialRoute: '/Welcome',
       routes: {
         '/welcome': (context) => Welcome(),
-        '/newUser': (context) => NewUser(),
         '/homepage': (context) => HomeScreen(),
         '/restoredata': (context) => RestoreData(),
         '/user': (context) => User(),
