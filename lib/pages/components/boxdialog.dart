@@ -12,7 +12,7 @@ class BoxwDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       icon: Icon(
-        Icons.info_outline_rounded,
+        Icons.live_help,
         size: 18,
       ),
       onPressed: () {

@@ -52,6 +52,7 @@ class _NumbersListState extends State<NumbersList> {
               maxHeight: 250,
             ),
             child: new ListWheelScrollView.useDelegate(
+              scrollDirection: Axis.horizontal,
               physics: const FixedExtentScrollPhysics(),
               diameterRatio: 100,
               itemExtent: 50,
