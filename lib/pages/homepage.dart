@@ -10,21 +10,21 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int pageNumber = 1;
-  PageController pageController;
+  PageController pageController = PageController(initialPage: 1);
   final List screens = <Widget>[
     Reports(),
     Home(),
     Profile(),
   ];
 
-  onPageChanged(index) {
+  onPageChanged(int index) {
     setState(() {
       pageNumber = index;
     });
   }
 
-  onPageTapped(index) {
-    pageController.jumpToPage(index);
+  onItemTapped(int selectedIndex) {
+    pageController.jumpToPage(selectedIndex);
   }
 
   @override
@@ -37,7 +37,13 @@ class _HomeScreenState extends State<HomeScreen> {
         onPageChanged: onPageChanged,
       ),
       bottomNavigationBar: BottomNavigationBar(
-        onTap: onPageTapped,
+        selectedLabelStyle: Theme.of(context)
+            .textTheme
+            .bodyText1
+            .merge(TextStyle(fontSize: 12)),
+        unselectedLabelStyle:
+            Theme.of(context).textTheme.button.merge(TextStyle(fontSize: 11)),
+        onTap: onItemTapped,
         items: [
           BottomNavigationBarItem(
             icon: Icon(
