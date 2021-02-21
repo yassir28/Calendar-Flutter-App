@@ -14,6 +14,7 @@ class BoxwDialog extends StatelessWidget {
       icon: Icon(
         Icons.live_help,
         size: 18,
+        color: Colors.grey,
       ),
       onPressed: () {
         return showDialog(

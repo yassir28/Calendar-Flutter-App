@@ -85,10 +85,13 @@ class _NewUser3State extends State<NewUser3>
                       listBody: ListBody(
                         children: [
                           Text(
-                              "Scroll to change the month, and tap to select the start date of your last period."),
+                            "Scroll to change the month, and tap to select the start date of your last period.",
+                            textAlign: TextAlign.justify,
+                          ),
                           Divider(),
                           Text(
                             "The date you selected will be used to predict your next period lenght.",
+                            textAlign: TextAlign.justify,
                           ),
                         ],
                       ),

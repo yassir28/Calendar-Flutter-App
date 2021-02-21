@@ -58,10 +58,13 @@ class _NewUserState extends State<NewUser> with AutomaticKeepAliveClientMixin {
                       listBody: ListBody(
                         children: [
                           Text(
-                              "Period lenght means bleeding days, which usually lasts between 3-7 days."),
+                            "Period lenght means bleeding days, which usually lasts between 3 to 7 days.",
+                            textAlign: TextAlign.justify,
+                          ),
                           Divider(),
                           Text(
                             "The period lenght you selected will be used to predict your next period lenght.",
+                            textAlign: TextAlign.justify,
                           ),
                         ],
                       ),

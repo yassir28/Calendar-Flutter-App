@@ -45,10 +45,13 @@ class _NewUser2State extends State<NewUser2>
                       listBody: ListBody(
                         children: [
                           Text(
-                              "Cycle lenght means the duration of two dates of period start, usually 21-36 days."),
+                            "Cycle lenght means the duration of two dates of period start, usually 21 to 36 days.",
+                            textAlign: TextAlign.justify,
+                          ),
                           Divider(),
                           Text(
                             "The cycle lenght you selected will be used to predict your next cycle lenght.",
+                            textAlign: TextAlign.justify,
                           ),
                         ],
                       ),
