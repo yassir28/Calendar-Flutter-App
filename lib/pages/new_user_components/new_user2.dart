@@ -24,52 +24,55 @@ class _NewUser2State extends State<NewUser2>
     setState(() => selectedIndex = _isSelected ? 1 : 0);
   }
 
-  buildBodyScreen(int selectedIndex) {
+  buildBodyScreen(int selectedIndex, double height) {
     switch (selectedIndex) {
       case 0:
-        return Column(
-          children: [
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(left: 18),
-                    child: Text(
-                      "On average, how long is your period cycle?",
-                      style: TextStyle(fontSize: 13),
-                    ),
-                  ),
-                  Container(
-                    child: BoxwDialog(
-                      listBody: ListBody(
-                        children: [
-                          Text(
-                            "Cycle lenght means the duration of two dates of period start, usually 21 to 36 days.",
-                            textAlign: TextAlign.justify,
-                          ),
-                          Divider(),
-                          Text(
-                            "The cycle lenght you selected will be used to predict your next cycle lenght.",
-                            textAlign: TextAlign.justify,
-                          ),
-                        ],
+        return Container(
+          height: height * 0.65,
+          child: Column(
+            children: [
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(left: 18),
+                      child: Text(
+                        "On average, how long is your period cycle?",
+                        style: TextStyle(fontSize: 13),
                       ),
                     ),
-                  ),
-                ],
+                    Container(
+                      child: BoxwDialog(
+                        listBody: ListBody(
+                          children: [
+                            Text(
+                              "Cycle lenght means the duration of two dates of period start, usually 21 to 36 days.",
+                              textAlign: TextAlign.justify,
+                            ),
+                            Divider(),
+                            Text(
+                              "The cycle lenght you selected will be used to predict your next cycle lenght.",
+                              textAlign: TextAlign.justify,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            NumbersList(
-              numbermax: 100,
-              numbermin: 15,
-            ),
-          ],
+              NumbersList(
+                numbermax: 100,
+                numbermin: 15,
+              ),
+            ],
+          ),
         );
         break;
       case 1:
         return Container(
-          margin: EdgeInsets.all(KDefaultPaddin),
+          height: height * 0.65,
           child: Center(
             child: Text(
               "Answered.",
@@ -97,7 +100,7 @@ class _NewUser2State extends State<NewUser2>
       resizeToAvoidBottomInset: false,
       body: Column(
         children: [
-          buildBodyScreen(selectedIndex),
+          buildBodyScreen(selectedIndex, height),
           Padding(
             padding: const EdgeInsets.all(KDefaultPaddin),
             child: Row(
@@ -111,7 +114,6 @@ class _NewUser2State extends State<NewUser2>
             ),
           ),
           Container(
-            margin: EdgeInsets.all(KDefaultPaddin),
             height: height * 0.075,
             width: width * 0.8,
             child: RaisedButton(

@@ -37,7 +37,6 @@ class _NewUser3State extends State<NewUser3>
             ),
           ),
           Container(
-            margin: EdgeInsets.all(KDefaultPaddin),
             height: height * 0.075,
             width: width * 0.8,
             child: RaisedButton(
@@ -70,6 +69,7 @@ class _NewUser3State extends State<NewUser3>
         return Column(
           children: [
             Container(
+              height: height * 0.1,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -101,7 +101,7 @@ class _NewUser3State extends State<NewUser3>
               ),
             ),
             Container(
-              height: height * 0.5,
+              height: height * 0.55,
               child: Calendar(),
             ),
           ],
@@ -109,7 +109,7 @@ class _NewUser3State extends State<NewUser3>
         break;
       case 1:
         return Container(
-          margin: EdgeInsets.all(KDefaultPaddin),
+          height: height * 0.65,
           child: Center(
             child: Text(
               "Answered.",
