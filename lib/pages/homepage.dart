@@ -37,32 +37,30 @@ class _HomeScreenState extends State<HomeScreen> {
         onPageChanged: onPageChanged,
       ),
       bottomNavigationBar: BottomNavigationBar(
-        selectedLabelStyle: Theme.of(context)
-            .textTheme
-            .bodyText1
-            .merge(TextStyle(fontSize: 12)),
-        unselectedLabelStyle:
-            Theme.of(context).textTheme.button.merge(TextStyle(fontSize: 11)),
+        currentIndex: pageNumber,
+        selectedLabelStyle: TextStyle(
+            color: Colors.pink[300], fontSize: 12, fontWeight: FontWeight.bold),
+        unselectedLabelStyle: TextStyle(fontSize: 11, color: Colors.grey),
+        selectedIconTheme: IconThemeData(color: Colors.pink[300], size: 32),
+        unselectedIconTheme:
+            IconThemeData(size: 26, color: Colors.grey.shade300),
         onTap: onItemTapped,
         items: [
           BottomNavigationBarItem(
             icon: Icon(
               Icons.insert_chart_rounded,
-              color: pageNumber == 0 ? Colors.pink[300] : Colors.grey,
             ),
             label: "Reports",
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.home,
-              color: pageNumber == 1 ? Colors.pink[300] : Colors.grey,
             ),
             label: "Home",
           ),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.text_snippet,
-                color: pageNumber == 2 ? Colors.pink[300] : Colors.grey,
               ),
               label: "Profile")
         ],

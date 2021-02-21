@@ -16,7 +16,8 @@ class NewUser2 extends StatefulWidget {
   _NewUser2State createState() => _NewUser2State();
 }
 
-class _NewUser2State extends State<NewUser2> {
+class _NewUser2State extends State<NewUser2>
+    with AutomaticKeepAliveClientMixin {
   int selectedIndex = 0;
 
   void _refresh(bool _isSelected) {
@@ -83,6 +84,8 @@ class _NewUser2State extends State<NewUser2> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
+
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
@@ -133,4 +136,8 @@ class _NewUser2State extends State<NewUser2> {
       ),
     );
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }

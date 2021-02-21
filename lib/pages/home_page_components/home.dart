@@ -22,7 +22,7 @@ class Home extends StatelessWidget {
               child: Row(
                 children: [
                   Container(
-                    width: width * 0.075,
+                    width: width * 0.05,
                     child: Icon(
                       Icons.circle,
                       color: Colors.pink[300],
@@ -30,19 +30,19 @@ class Home extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: width * 0.15,
+                    width: width * 0.13,
                     child: Text("Period"),
                   ),
                   Container(
-                      width: width * 0.075,
+                      width: width * 0.05,
                       child: Icon(Icons.radio_button_off, size: 10)),
                   Container(
-                    width: width * 0.15,
+                    width: width * 0.2,
                     child: Text("Prediction"),
                   ),
                   Container(
                     height: 10,
-                    width: width * 0.075,
+                    width: width * 0.05,
                     margin: EdgeInsets.only(left: 10),
                     decoration: BoxDecoration(
                       color: Colors.green,
@@ -50,11 +50,11 @@ class Home extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: width * 0.15,
+                    width: width * 0.13,
                     child: Text("Fertile"),
                   ),
                   Container(
-                    width: width * 0.075,
+                    width: width * 0.05,
                     child: Icon(
                       Icons.favorite,
                       color: Colors.teal[800],
@@ -62,7 +62,7 @@ class Home extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: width * 0.15,
+                    width: width * 0.2,
                     child: Text("Ovulation"),
                   ),
                 ],
