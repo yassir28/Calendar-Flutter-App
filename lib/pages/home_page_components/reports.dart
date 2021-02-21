@@ -8,8 +8,11 @@ class Reports extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.pink[300],
-          elevation: 0,
-          title: Text("Reports"),
+          title: Text(
+            "REPORTS",
+            style: TextStyle(letterSpacing: 2),
+          ),
+          centerTitle: true,
           bottom: TabBar(
             tabs: [
               Tab(

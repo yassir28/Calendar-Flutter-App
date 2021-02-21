@@ -4,7 +4,25 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+        appBar: AppBar(
+          centerTitle: true,
+          backgroundColor: Colors.pink[300],
+          title: Text(
+            "PROFILE",
+            style: TextStyle(letterSpacing: 2),
+          ),
+        ),
+        body: Container(
+          child: ListTile(
+            onTap: () {},
+            title: Text("Profile"),
+            leading: CircleAvatar(
+              maxRadius: 10,
+              backgroundImage: AssetImage('assets/images/girl.png'),
+            ),
+          ),
+        )
+        /*Column(
         children: [
           ListView(
             children: [
@@ -13,11 +31,12 @@ class Profile extends StatelessWidget {
                   onTap: () {},
                   title: Text("Profile"),
                   leading: CircleAvatar(
-                    backgroundImage: AssetImage(''),
+                    maxRadius: 10,
+                    backgroundImage: AssetImage('assets/girl.png'),
                   ),
                 ),
               ),
-              Card(
+              /* Card(
                 child: ListTile(
                   onTap: () {},
                   title: Text("Period Lenght"),
@@ -37,10 +56,10 @@ class Profile extends StatelessWidget {
                   title: Text("Reminders"),
                   leading: Text("jaras icon"),
                 ),
-              ),
+              ),*/
             ],
           ),
-          ListView(
+          /*ListView(
             children: [
               Card(
                 child: ListTile(
@@ -78,9 +97,9 @@ class Profile extends StatelessWidget {
                 ),
               )
             ],
-          ),
+          ),*/
         ],
-      ),
-    );
+      ),*/
+        );
   }
 }
