@@ -142,7 +142,7 @@ class _NewUserState extends State<NewUser> with AutomaticKeepAliveClientMixin {
               child: Text(
                 "Next",
                 style: TextStyle(
-                  color: WTextColor,
+                  color: Colors.white,
                   letterSpacing: 2,
                   fontWeight: FontWeight.bold,
                   fontSize: 18,

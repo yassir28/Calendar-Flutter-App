@@ -39,7 +39,7 @@ class Welcome extends StatelessWidget {
                   color: Colors.pink[300],
                   width: width * 0.8,
                   height: height * 0.075,
-                  text: Text("New User", style: TextStyle(color: WTextColor)),
+                  text: Text("New User", style: TextStyle(color: Colors.white)),
                   press: () {
                     Navigator.of(context).pushNamed('/user');
                   },

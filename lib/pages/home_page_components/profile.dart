@@ -18,11 +18,10 @@ class Profile extends StatelessWidget {
           children: [
             Card(
               child: ListTile(
-                tileColor: WTextColor,
                 onTap: () {},
                 leading: CircleAvatar(
                   backgroundColor: Colors.transparent,
-                  radius: 20,
+                  radius: 30,
                   child: ClipOval(
                     child: Image.asset('assets/images/girl.png'),
                   ),
@@ -30,71 +29,96 @@ class Profile extends StatelessWidget {
                 title: Text("Profile"),
                 subtitle: Text("Back up your data"),
                 trailing: IconButton(
-                  icon: Icon(Icons.arrow_right, size: 30),
+                  icon: Icon(
+                    Icons.arrow_right,
+                    size: 30,
+                    color: Colors.pink[100],
+                  ),
                   onPressed: () {},
                 ),
               ),
             ),
             Card(
               child: ListTile(
-                tileColor: WTextColor,
                 onTap: () {},
                 title: Text("Period Lenght"),
-                leading: Icon(Icons.date_range),
+                leading: Icon(
+                  Icons.date_range,
+                  color: Colors.pink[100],
+                ),
               ),
             ),
             Card(
               child: ListTile(
-                tileColor: WTextColor,
                 onTap: () {},
                 title: Text("Cycle Lenght"),
-                leading: Icon(Icons.wifi_protected_setup),
+                leading: Icon(
+                  Icons.wifi_protected_setup,
+                  color: Colors.pink[100],
+                ),
               ),
             ),
             Card(
               child: ListTile(
-                tileColor: WTextColor,
                 onTap: () {},
                 title: Text("Reminders"),
-                leading: Icon(Icons.notifications_active, color: Colors.grey),
+                leading: Icon(
+                  Icons.notifications_active,
+                  color: Colors.pink[100],
+                ),
               ),
             ),
-            Divider(
-              thickness: 5,
+            SizedBox(
+              height: 50,
             ),
             Card(
               child: ListTile(
                 onTap: () {},
-                title: Text("Settings"),
-                leading: Text("Settings icon"),
+                title: Text("Settings icon"),
+                leading: Icon(
+                  Icons.settings,
+                  color: Colors.pink[100],
+                ),
               ),
             ),
             Card(
               child: ListTile(
                 onTap: () {},
                 title: Text("Rate Us"),
-                leading: Text("star icon"),
+                leading: Icon(
+                  Icons.star,
+                  color: Colors.pink[100],
+                ),
               ),
             ),
             Card(
               child: ListTile(
                 onTap: () {},
                 title: Text("Send email feedback"),
-                leading: Text("email icon"),
+                leading: Icon(
+                  Icons.email,
+                  color: Colors.pink[100],
+                ),
               ),
             ),
             Card(
               child: ListTile(
                 onTap: () {},
                 title: Text("delete all records"),
-                leading: Text("delete icon"),
+                leading: Icon(
+                  Icons.delete_rounded,
+                  color: Colors.pink[100],
+                ),
               ),
             ),
             Card(
               child: ListTile(
                 onTap: () {},
                 title: Text("About"),
-                leading: Text("about(danger) icon"),
+                leading: Icon(
+                  Icons.date_range_rounded,
+                  color: Colors.pink[100],
+                ),
               ),
             )
           ],

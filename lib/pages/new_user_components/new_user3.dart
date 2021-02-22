@@ -50,7 +50,7 @@ class _NewUser3State extends State<NewUser3>
               child: Text(
                 "Next",
                 style: TextStyle(
-                  color: WTextColor,
+                  color: Colors.white,
                   letterSpacing: 2,
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
