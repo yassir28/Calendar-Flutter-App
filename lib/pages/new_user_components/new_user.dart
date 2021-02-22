@@ -38,7 +38,7 @@ class _NewUserState extends State<NewUser> with AutomaticKeepAliveClientMixin {
                     "To predict period accurately,\n it would be better if you answer 3 questions.",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Colors.pink[400],
+                      color: Colors.pink[300],
                       fontSize: 16,
                     ),
                   ),
@@ -91,7 +91,7 @@ class _NewUserState extends State<NewUser> with AutomaticKeepAliveClientMixin {
               "Answered.",
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: Colors.pink[400],
+                color: Colors.pink[300],
                 fontSize: 16,
               ),
             ),
@@ -128,11 +128,11 @@ class _NewUserState extends State<NewUser> with AutomaticKeepAliveClientMixin {
             height: height * 0.075,
             width: width * 0.8,
             child: RaisedButton(
-              color: Colors.pink[400],
+              color: Colors.pink[300],
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(13),
                 side: BorderSide(
-                  color: Colors.pink[400],
+                  color: Colors.pink[300],
                 ),
               ),
               onPressed: () {

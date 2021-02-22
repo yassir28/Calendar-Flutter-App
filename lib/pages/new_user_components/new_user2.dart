@@ -78,7 +78,7 @@ class _NewUser2State extends State<NewUser2>
               "Answered.",
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: Colors.pink[400],
+                color: Colors.pink[300],
                 fontSize: 16,
               ),
             ),
@@ -117,10 +117,10 @@ class _NewUser2State extends State<NewUser2>
             height: height * 0.075,
             width: width * 0.8,
             child: RaisedButton(
-              color: Colors.pink[400],
+              color: Colors.pink[300],
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(13),
-                side: BorderSide(color: Colors.pink[400]),
+                side: BorderSide(color: Colors.pink[300]),
               ),
               onPressed: () {
                 widget.pageController.jumpToPage(widget.pageIndex + 1);

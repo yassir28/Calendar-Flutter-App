@@ -40,10 +40,10 @@ class _NewUser3State extends State<NewUser3>
             height: height * 0.075,
             width: width * 0.8,
             child: RaisedButton(
-              color: Colors.pink[400],
+              color: Colors.pink[300],
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(13),
-                  side: BorderSide(color: Colors.pink[400])),
+                  side: BorderSide(color: Colors.pink[300])),
               onPressed: () {
                 Navigator.of(context).pushNamed('/homepage');
               },
@@ -115,7 +115,7 @@ class _NewUser3State extends State<NewUser3>
               "Answered.",
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: Colors.pink[400],
+                color: Colors.pink[300],
                 fontSize: 16,
               ),
             ),

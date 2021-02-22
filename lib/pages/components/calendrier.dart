@@ -21,7 +21,7 @@ class _CalendarState extends State<Calendar> {
         child: TableCalendar(
           calendarStyle: CalendarStyle(
             todayColor: Colors.indigo[400],
-            selectedColor: Colors.pink[400],
+            selectedColor: Colors.pink[300],
             selectedStyle: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 18,

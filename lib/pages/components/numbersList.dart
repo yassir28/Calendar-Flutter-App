@@ -35,11 +35,11 @@ class _NumbersListState extends State<NumbersList> {
             decoration: BoxDecoration(
               border: Border(
                 top: BorderSide(
-                  color: Colors.pink[400],
+                  color: Colors.pink[300],
                   width: 2,
                 ),
                 bottom: BorderSide(
-                  color: Colors.pink[400],
+                  color: Colors.pink[300],
                   width: 2,
                 ),
               ),
@@ -69,7 +69,7 @@ class _NumbersListState extends State<NumbersList> {
                         textAlign: TextAlign.center,
                         style: Theme.of(context).textTheme.headline5.copyWith(
                             color: _selectedItemIndex == index
-                                ? Colors.pink[400]
+                                ? Colors.pink[300]
                                 : color,
                             fontWeight: FontWeight.bold),
                       ),

@@ -30,13 +30,13 @@ class Welcome extends StatelessWidget {
                         "Hi! Welcome to  \n Period Calendar!",
                         textAlign: TextAlign.center,
                         style: Theme.of(context).textTheme.headline4.copyWith(
-                            color: Colors.pink[400], letterSpacing: 1.0),
+                            color: Colors.pink[300], letterSpacing: 1.0),
                       ),
                     ),
                   ),
                 ),
                 buildFlatButton(
-                  color: Colors.pink[400],
+                  color: Colors.pink[300],
                   width: width * 0.8,
                   height: height * 0.075,
                   text: Text("New User", style: TextStyle(color: WTextColor)),
@@ -50,7 +50,7 @@ class Welcome extends StatelessWidget {
                   height: height * 0.075,
                   text: Text(
                     "Restore Data",
-                    style: TextStyle(color: Colors.pink[400]),
+                    style: TextStyle(color: Colors.pink[300]),
                   ),
                   press: () {
                     Navigator.of(context).pushNamed('/resotredata');
