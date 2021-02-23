@@ -31,7 +31,21 @@ class MyApp extends StatelessWidget {
         textTheme: Theme.of(context).textTheme.apply(bodyColor: KTextColor),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Welcome(),
+      home: FutureBuilder(
+        future: _fbApp,
+        builder: (context, snapshot) {
+          if (snapshot.hasError) {
+            print('you have an error!${snapshot.error.toString()}');
+            return Text("Something Went Wrong");
+          } else if (snapshot.hasData) {
+            return Welcome();
+          } else {
+            Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        },
+      ),
     );
   }
 }
