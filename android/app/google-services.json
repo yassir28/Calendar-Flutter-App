@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "684330689925",
+    "project_id": "menstruating-project",
+    "storage_bucket": "menstruating-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:684330689925:android:99987a1602dfe2882d90ec",
+        "android_client_info": {
+          "package_name": "com.example.menstruating"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "684330689925-asa8966gnmvfiu1eg5nof0d9pd50pt54.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvev1fh8TdheQ-zJMrD2Auv_AbeS1NZBA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "684330689925-asa8966gnmvfiu1eg5nof0d9pd50pt54.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
