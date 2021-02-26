@@ -27,9 +27,9 @@ class _NewUserState extends State<NewUser> with AutomaticKeepAliveClientMixin {
   }
 
   _onPeriodLengthChanged(int index) {
-    DatabaseReference _testRef =
+    /* DatabaseReference _testRef =
         FirebaseDatabase.instance.reference().child("period length");
-    _testRef.set(index);
+    _testRef.set(index);*/
 
     setState(() {
       periodLenght = index;

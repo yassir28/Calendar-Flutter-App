@@ -5,6 +5,7 @@ import 'package:menstruating/pages/welcome.dart';
 import 'package:menstruating/pages/homepage.dart';
 import 'package:menstruating/pages/restoredata.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:menstruating/pages/wrapper.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
             print('you have an error!${snapshot.error.toString()}');
             return Text("Something Went Wrong");
           } else if (snapshot.hasData) {
-            return Welcome();
+            return Wrapper();
           } else {
             Center(
               child: CircularProgressIndicator(),

@@ -59,7 +59,7 @@ class _NumbersListState extends State<NumbersList> {
               itemExtent: 50,
               onSelectedItemChanged: (index) => setState(() {
                 _selectedItemIndex = index;
-                widget.onPeriodLengthChanged(index);
+                widget.onPeriodLengthChanged(_selectedItemIndex);
               }),
               childDelegate: ListWheelChildLoopingListDelegate(
                 children: List.generate(
