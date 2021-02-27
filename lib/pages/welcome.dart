@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:menstruating/constants.dart';
+import 'package:menstruating/services/auth.dart';
 
 class Welcome extends StatelessWidget {
+  final AuthService _auth = AuthService();
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -40,8 +42,15 @@ class Welcome extends StatelessWidget {
                   width: width * 0.8,
                   height: height * 0.075,
                   text: Text("New User", style: TextStyle(color: Colors.white)),
-                  press: () {
+                  press: () async {
+                    dynamic result = await _auth.singInAnon();
                     Navigator.of(context).pushNamed('/user');
+                    if (result == null) {
+                      print('error signing in');
+                    } else {
+                      print('signed in');
+                      print(result);
+                    }
                   },
                 ),
                 buildFlatButton(

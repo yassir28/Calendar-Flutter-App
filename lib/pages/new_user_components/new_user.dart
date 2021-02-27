@@ -20,21 +20,21 @@ class NewUser extends StatefulWidget {
 
 class _NewUserState extends State<NewUser> with AutomaticKeepAliveClientMixin {
   int selectedIndex = 0;
-  int periodLenght = 0;
+  // int periodLenght = 0;
 
   void _refresh(bool _isSelected) {
     setState(() => selectedIndex = _isSelected ? 1 : 0);
   }
 
-  _onPeriodLengthChanged(int index) {
-    /* DatabaseReference _testRef =
+  /*_onPeriodLengthChanged(int index) {
+     DatabaseReference _testRef =
         FirebaseDatabase.instance.reference().child("period length");
-    _testRef.set(index);*/
+    _testRef.set(index);
 
     setState(() {
       periodLenght = index;
     });
-  }
+  }*/
 
   buildPageScreen(int selectedIndex, double height) {
     switch (selectedIndex) {
@@ -88,7 +88,7 @@ class _NewUserState extends State<NewUser> with AutomaticKeepAliveClientMixin {
                 ),
               ),
               NumbersList(
-                onPeriodLengthChanged: _onPeriodLengthChanged,
+                /*onPeriodLengthChanged: _onPeriodLengthChanged,*/
                 numbermax: 14,
                 numbermin: 2,
               ),

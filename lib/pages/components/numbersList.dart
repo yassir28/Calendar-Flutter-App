@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 class NumbersList extends StatefulWidget {
   final int numbermin;
   final int numbermax;
-  final ValueChanged onPeriodLengthChanged;
+  /*final ValueChanged onPeriodLengthChanged;*/
 
-  const NumbersList(
-      {Key key,
-      @required this.numbermax,
-      @required this.numbermin,
-      this.onPeriodLengthChanged})
-      : super(key: key);
+  const NumbersList({
+    Key key,
+    @required this.numbermax,
+    @required this.numbermin,
+    /*this.onPeriodLengthChanged*/
+  }) : super(key: key);
 
   @override
   _NumbersListState createState() => _NumbersListState();
@@ -59,7 +59,7 @@ class _NumbersListState extends State<NumbersList> {
               itemExtent: 50,
               onSelectedItemChanged: (index) => setState(() {
                 _selectedItemIndex = index;
-                widget.onPeriodLengthChanged(_selectedItemIndex);
+                /*widget.onPeriodLengthChanged(_selectedItemIndex);*/
               }),
               childDelegate: ListWheelChildLoopingListDelegate(
                 children: List.generate(

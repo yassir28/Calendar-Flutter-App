@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    final Future<FirebaseApp> _fbApp = Firebase.initializeApp();
+//    final Future<FirebaseApp> _fbApp = Firebase.initializeApp();
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
@@ -32,7 +32,8 @@ class MyApp extends StatelessWidget {
         textTheme: Theme.of(context).textTheme.apply(bodyColor: KTextColor),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: FutureBuilder(
+      home: Wrapper(
+          /*FutureBuilder(
         future: _fbApp,
         builder: (context, snapshot) {
           if (snapshot.hasError) {
@@ -46,7 +47,8 @@ class MyApp extends StatelessWidget {
             );
           }
         },
-      ),
+      ),*/
+          ),
     );
   }
 }
