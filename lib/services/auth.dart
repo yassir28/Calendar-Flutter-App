@@ -1,25 +1,40 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart' as fb_user;
+import 'package:menstruating/models/user.dart' as models_user;
 
 class AuthService {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final fb_user.FirebaseAuth _auth = fb_user.FirebaseAuth.instance;
+
+  // create a user obj based on FirebaseUser
+  models_user.User _userFromFirebaseUser(fb_user.User user) {
+    return user != null ? models_user.User(uid: user.uid) : null;
+  }
+
+  // auth change user stream
+  Stream<models_user.User> get user {
+    return _auth
+        .authStateChanges()
+        .map((fb_user.User user) => _userFromFirebaseUser(user));
+  }
 
   // sign in anon
-
   Future singInAnon() async {
     try {
-      UserCredential credential = await _auth.signInAnonymously();
-      User user = credential.user;
-      return user;
+      fb_user.UserCredential credential = await _auth.signInAnonymously();
+      fb_user.User user = credential.user;
+      return _userFromFirebaseUser(user);
     } catch (e) {
       print('The error is: ${e.toString()}');
       return null;
     }
   }
 
-  // sign in with email and password
-
-  // register with email and password
-
   // sign out
-
+  Future signOut() async {
+    try {
+      return await _auth.signOut();
+    } catch (e) {
+      print('your error is ${e.toString()}');
+      return null;
+    }
+  }
 }

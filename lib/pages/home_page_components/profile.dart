@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:menstruating/constants.dart';
+import 'package:menstruating/services/auth.dart';
 
 class Profile extends StatelessWidget {
+  final AuthService _auth = AuthService();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,9 +23,9 @@ class Profile extends StatelessWidget {
                 leading: CircleAvatar(
                   backgroundColor: Colors.transparent,
                   radius: 30,
-                  child: ClipOval(
+                  /*child: ClipOval(
                     child: Image.asset('assets/images/girl.png'),
-                  ),
+                  ),*/
                 ),
                 title: Text("Profile"),
                 subtitle: Text("Back up your data"),
@@ -103,7 +104,9 @@ class Profile extends StatelessWidget {
             ),
             Card(
               child: ListTile(
-                onTap: () {},
+                onTap: () async {
+                  await _auth.signOut();
+                },
                 title: Text("delete all records"),
                 leading: Icon(
                   Icons.delete_rounded,

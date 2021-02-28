@@ -49,7 +49,7 @@ class Welcome extends StatelessWidget {
                       print('error signing in');
                     } else {
                       print('signed in');
-                      print(result);
+                      print(result.uid);
                     }
                   },
                 ),
