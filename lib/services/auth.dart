@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart' as fb_user;
 import 'package:menstruating/models/user.dart' as models_user;
+import 'package:menstruating/services/database.dart';
 
 class AuthService {
   final fb_user.FirebaseAuth _auth = fb_user.FirebaseAuth.instance;
@@ -21,6 +22,10 @@ class AuthService {
     try {
       fb_user.UserCredential credential = await _auth.signInAnonymously();
       fb_user.User user = credential.user;
+
+      //  create a new document for the user with the uid
+      await DataBaseService(uid: user.uid).updateUserData(3, 28, 15);
+
       return _userFromFirebaseUser(user);
     } catch (e) {
       print('The error is: ${e.toString()}');
