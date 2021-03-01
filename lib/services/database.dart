@@ -6,7 +6,7 @@ class DataBaseService {
 
   //collection reference
   final CollectionReference userCollection =
-      FirebaseFirestore.instance.collection('brews');
+      FirebaseFirestore.instance.collection('Queens');
 
   Future updateUserData(
       int periodLength, int periodCycle, int periodDate) async {
@@ -15,5 +15,10 @@ class DataBaseService {
       'period cycle': periodCycle,
       'period date': periodDate
     });
+  }
+
+// when data change in db we use can use this stream to provide us with changes
+  Stream<QuerySnapshot> get queens {
+    return userCollection.snapshots();
   }
 }

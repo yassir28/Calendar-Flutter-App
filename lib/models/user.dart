@@ -1,10 +1,7 @@
 class User {
   final String uid;
-  final int periodLength;
-  final int periodCycle;
-  final int periodDate;
 
-  User({this.uid, this.periodCycle, this.periodLength, this.periodDate});
+  User({this.uid});
 }
 
 //these are our users infos.

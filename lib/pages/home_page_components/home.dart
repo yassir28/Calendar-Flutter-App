@@ -1,10 +1,16 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:menstruating/constants.dart';
 import 'package:menstruating/pages/components/calendrier.dart';
+import 'package:provider/provider.dart';
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final queens = Provider.of<QuerySnapshot>(context);
+    for (var doc in queens.docs) {
+      print(doc.data());
+    }
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
