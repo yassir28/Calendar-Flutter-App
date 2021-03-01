@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:menstruating/models/queen.dart';
 
 class DataBaseService {
   final String uid;
@@ -17,8 +18,21 @@ class DataBaseService {
     });
   }
 
+// queen list from snapshot
+  List<Queen> _queenListFromSnapshot(QuerySnapshot snapshot) {
+    return snapshot.docs.map((doc) {
+      return Queen(
+        periodCycle: doc.data()['period cycle'] ?? 0,
+        periodLength: doc.data()['period length'] ?? 0,
+        periodDate: doc.data()['period date'] ?? 0,
+      );
+    }).toList();
+  }
+
 // when data change in db we use can use this stream to provide us with changes
-  Stream<QuerySnapshot> get queens {
-    return userCollection.snapshots();
+  Stream<List<Queen>> get queens {
+    return userCollection
+        .snapshots()
+        .map((snapshot) => _queenListFromSnapshot(snapshot));
   }
 }

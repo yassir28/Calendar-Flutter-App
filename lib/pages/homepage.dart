@@ -1,5 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:menstruating/models/queen.dart';
 import 'package:menstruating/pages/home_page_components/home.dart';
 import 'package:menstruating/pages/home_page_components/profile.dart';
 import 'package:menstruating/pages/home_page_components/reports.dart';
@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return StreamProvider<QuerySnapshot>.value(
+    return StreamProvider<List<Queen>>.value(
       value: DataBaseService().queens,
       child: Scaffold(
         body: PageView(

@@ -3,6 +3,7 @@ import 'package:menstruating/constants.dart';
 import 'package:menstruating/pages/components/boxdialog.dart';
 import 'package:menstruating/pages/components/calendrier.dart';
 import 'package:menstruating/pages/components/colordot.dart';
+import 'package:menstruating/services/auth.dart';
 
 class NewUser3 extends StatefulWidget {
   @override
@@ -12,6 +13,7 @@ class NewUser3 extends StatefulWidget {
 class _NewUser3State extends State<NewUser3>
     with AutomaticKeepAliveClientMixin {
   int selectedIndex = 0;
+  final AuthService _auth = AuthService();
 
   void _refresh(bool _isSelected) {
     setState(() => selectedIndex = _isSelected ? 1 : 0);
@@ -44,7 +46,9 @@ class _NewUser3State extends State<NewUser3>
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(13),
                   side: BorderSide(color: Colors.pink[300])),
-              onPressed: () {
+              onPressed: () async {
+                dynamic result = await _auth.singInAnon();
+
                 Navigator.of(context).pushNamed('/homepage');
               },
               child: Text(
