@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:menstruating/constants.dart';
+import 'package:menstruating/pages/restoredata.dart';
+import 'package:menstruating/pages/user.dart';
 
 class Welcome extends StatelessWidget {
   @override
@@ -41,7 +43,10 @@ class Welcome extends StatelessWidget {
                   height: height * 0.075,
                   text: Text("New User", style: TextStyle(color: Colors.white)),
                   press: () {
-                    Navigator.of(context).pushNamed('/user');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => User()),
+                    );
                   },
                 ),
                 buildFlatButton(
@@ -53,7 +58,10 @@ class Welcome extends StatelessWidget {
                     style: TextStyle(color: Colors.pink[300]),
                   ),
                   press: () {
-                    Navigator.of(context).pushNamed('/resotredata');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => RestoreData()),
+                    );
                   },
                 ),
                 RichText(

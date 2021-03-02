@@ -24,13 +24,6 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        initialRoute: '/Welcome',
-        routes: {
-          '/welcome': (context) => Welcome(),
-          '/homepage': (context) => HomeScreen(),
-          '/restoredata': (context) => RestoreData(),
-          '/user': (context) => User(),
-        },
         theme: ThemeData(
           primarySwatch: Colors.pink,
           textTheme: Theme.of(context).textTheme.apply(bodyColor: KTextColor),
