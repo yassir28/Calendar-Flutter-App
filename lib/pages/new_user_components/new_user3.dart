@@ -49,7 +49,12 @@ class _NewUser3State extends State<NewUser3>
                   side: BorderSide(color: Colors.pink[300])),
               onPressed: () async {
                 dynamic result = await _auth.singInAnon();
-                Navigator.push(
+                if (result == null) {
+                  print('there is an error');
+                } else {
+                  print(result.uid);
+                }
+                Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => HomeScreen()),
                 );

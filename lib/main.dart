@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:menstruating/constants.dart';
-import 'package:menstruating/pages/user.dart';
-import 'package:menstruating/pages/welcome.dart';
-import 'package:menstruating/pages/homepage.dart';
-import 'package:menstruating/pages/restoredata.dart';
 import 'package:menstruating/pages/wrapper.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:menstruating/services/auth.dart';
@@ -29,23 +25,7 @@ class MyApp extends StatelessWidget {
           textTheme: Theme.of(context).textTheme.apply(bodyColor: KTextColor),
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: Wrapper(
-            /*FutureBuilder(
-          future: _fbApp,
-          builder: (context, snapshot) {
-            if (snapshot.hasError) {
-              print('you have an error!${snapshot.error.toString()}');
-              return Text("Something Went Wrong");
-            } else if (snapshot.hasData) {
-              return Wrapper();
-            } else {
-              Center(
-                child: CircularProgressIndicator(),
-              );
-            }
-          },
-        ),*/
-            ),
+        home: Wrapper(),
       ),
     );
   }
