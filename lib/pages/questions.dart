@@ -85,50 +85,46 @@ class _QuestionsState extends State<Questions> {
           child: Row(
             children: [
               Container(
-                height: 10,
-                width: width * 0.2,
+                height: width * 0.075,
+                width: width * 0.075,
                 decoration: BoxDecoration(
-                  shape: BoxShape.rectangle,
+                  color: Colors.pink[300],
+                  shape: BoxShape.circle,
                   border: Border.all(
                     color: Colors.pink[300],
-                    width: 1,
-                  ),
-                ),
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: Colors.pink[300],
+                    width: 2,
                   ),
                 ),
               ),
               Container(
-                height: 10,
-                width: width * 0.2,
+                width: width * 0.22,
+                height: 1,
+                color: Colors.pink[300],
+              ),
+              Container(
+                height: width * 0.075,
+                width: width * 0.075,
                 decoration: BoxDecoration(
-                  shape: BoxShape.rectangle,
+                  shape: BoxShape.circle,
                   border: Border.all(
                     color: Colors.pink[300],
-                    width: 1,
-                  ),
-                ),
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: Colors.transparent,
+                    width: 2,
                   ),
                 ),
               ),
               Container(
-                height: 10,
-                width: width * 0.2,
+                width: width * 0.22,
+                height: 1,
+                color: Colors.pink[300],
+              ),
+              Container(
+                height: width * 0.075,
+                width: width * 0.075,
                 decoration: BoxDecoration(
-                  shape: BoxShape.rectangle,
+                  shape: BoxShape.circle,
                   border: Border.all(
                     color: Colors.pink[300],
-                    width: 1,
-                  ),
-                ),
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: Colors.transparent,
+                    width: 2,
                   ),
                 ),
               ),
@@ -140,59 +136,47 @@ class _QuestionsState extends State<Questions> {
           child: Row(
             children: [
               Container(
-                height: 10,
-                width: width * 0.2,
+                height: width * 0.075,
+                width: width * 0.075,
                 decoration: BoxDecoration(
-                  shape: BoxShape.rectangle,
+                  color: Colors.pink[300],
+                  shape: BoxShape.circle,
                   border: Border.all(
                     color: Colors.pink[300],
-                    width: 1,
-                  ),
-                ),
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: Colors.pink[300],
+                    width: 2,
                   ),
                 ),
               ),
               Container(
-                height: 10,
-                width: width * 0.2,
+                width: width * 0.22,
+                height: 1,
+                color: Colors.pink[300],
+              ),
+              Container(
+                height: width * 0.075,
+                width: width * 0.075,
                 decoration: BoxDecoration(
-                  shape: BoxShape.rectangle,
-                  border: Border(
-                    top: BorderSide(
-                      color: Colors.pink[300],
-                      width: 1,
-                    ),
-                    right: BorderSide(
-                      color: Colors.pink[300],
-                      width: 1,
-                    ),
-                    bottom: BorderSide(
-                      color: Colors.pink[300],
-                      width: 1,
-                    ),
-                    left: BorderSide(
-                      color: Colors.transparent,
-                      width: 1,
-                    ),
-                  ),
-                ),
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
+                  color: Colors.pink[300],
+                  shape: BoxShape.circle,
+                  border: Border.all(
                     color: Colors.pink[300],
+                    width: 2,
                   ),
                 ),
               ),
               Container(
-                height: 10,
-                width: width * 0.2,
+                width: width * 0.22,
+                height: 1,
+                color: Colors.pink[300],
+              ),
+              Container(
+                height: width * 0.075,
+                width: width * 0.075,
                 decoration: BoxDecoration(
-                  shape: BoxShape.rectangle,
+                  shape: BoxShape.circle,
                   border: Border.all(
                     color: Colors.pink[300],
-                    width: 1,
+                    width: 2,
                   ),
                 ),
               ),
@@ -204,84 +188,201 @@ class _QuestionsState extends State<Questions> {
           child: Row(
             children: [
               Container(
-                height: 10,
-                width: width * 0.2,
+                height: width * 0.075,
+                width: width * 0.075,
                 decoration: BoxDecoration(
-                  shape: BoxShape.rectangle,
+                  color: Colors.pink[300],
+                  shape: BoxShape.circle,
                   border: Border.all(
                     color: Colors.pink[300],
-                    width: 1,
-                  ),
-                ),
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: Colors.pink[300],
+                    width: 2,
                   ),
                 ),
               ),
               Container(
-                height: 10,
-                width: width * 0.2,
+                width: width * 0.22,
+                height: 1,
+                color: Colors.pink[300],
+              ),
+              Container(
+                height: width * 0.075,
+                width: width * 0.075,
                 decoration: BoxDecoration(
-                  shape: BoxShape.rectangle,
-                  border: Border(
-                    top: BorderSide(
-                      color: Colors.pink[300],
-                      width: 1,
-                    ),
-                    right: BorderSide(
-                      color: Colors.pink[300],
-                      width: 1,
-                    ),
-                    bottom: BorderSide(
-                      color: Colors.pink[300],
-                      width: 1,
-                    ),
-                    left: BorderSide(
-                      color: Colors.transparent,
-                      width: 1,
-                    ),
-                  ),
-                ),
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
+                  color: Colors.pink[300],
+                  shape: BoxShape.circle,
+                  border: Border.all(
                     color: Colors.pink[300],
+                    width: 2,
                   ),
                 ),
               ),
               Container(
-                height: 10,
-                width: width * 0.2,
+                width: width * 0.22,
+                height: 1,
+                color: Colors.pink[300],
+              ),
+              Container(
+                height: width * 0.075,
+                width: width * 0.075,
                 decoration: BoxDecoration(
-                  shape: BoxShape.rectangle,
-                  border: Border(
-                    top: BorderSide(
-                      color: Colors.pink[300],
-                      width: 1,
-                    ),
-                    right: BorderSide(
-                      color: Colors.pink[300],
-                      width: 1,
-                    ),
-                    bottom: BorderSide(
-                      color: Colors.pink[300],
-                      width: 1,
-                    ),
-                    left: BorderSide(
-                      color: Colors.transparent,
-                      width: 1,
-                    ),
-                  ),
-                ),
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
+                  color: Colors.pink[300],
+                  shape: BoxShape.circle,
+                  border: Border.all(
                     color: Colors.pink[300],
+                    width: 2,
                   ),
                 ),
               ),
             ],
           ),
         );
+      // case 1:
+      //   return Container(
+      //     child: Row(
+      //       children: [
+      //         Container(
+      //           height: 10,
+      //           width: width * 0.2,
+      //           decoration: BoxDecoration(
+      //             shape: BoxShape.rectangle,
+      //             border: Border.all(
+      //               color: Colors.pink[300],
+      //               width: 1,
+      //             ),
+      //           ),
+      //           child: DecoratedBox(
+      //             decoration: BoxDecoration(
+      //               color: Colors.pink[300],
+      //             ),
+      //           ),
+      //         ),
+      //         Container(
+      //           height: 10,
+      //           width: width * 0.2,
+      //           decoration: BoxDecoration(
+      //             shape: BoxShape.rectangle,
+      //             border: Border(
+      //               top: BorderSide(
+      //                 color: Colors.pink[300],
+      //                 width: 1,
+      //               ),
+      //               right: BorderSide(
+      //                 color: Colors.pink[300],
+      //                 width: 1,
+      //               ),
+      //               bottom: BorderSide(
+      //                 color: Colors.pink[300],
+      //                 width: 1,
+      //               ),
+      //               left: BorderSide(
+      //                 color: Colors.transparent,
+      //                 width: 1,
+      //               ),
+      //             ),
+      //           ),
+      //           child: DecoratedBox(
+      //             decoration: BoxDecoration(
+      //               color: Colors.pink[300],
+      //             ),
+      //           ),
+      //         ),
+      //         Container(
+      //           height: 10,
+      //           width: width * 0.2,
+      //           decoration: BoxDecoration(
+      //             shape: BoxShape.rectangle,
+      //             border: Border.all(
+      //               color: Colors.pink[300],
+      //               width: 1,
+      //             ),
+      //           ),
+      //         ),
+      //       ],
+      //     ),
+      //   );
+      // case 2:
+      //   return Container(
+      //     child: Row(
+      //       children: [
+      //         Container(
+      //           height: 10,
+      //           width: width * 0.2,
+      //           decoration: BoxDecoration(
+      //             shape: BoxShape.rectangle,
+      //             border: Border.all(
+      //               color: Colors.pink[300],
+      //               width: 1,
+      //             ),
+      //           ),
+      //           child: DecoratedBox(
+      //             decoration: BoxDecoration(
+      //               color: Colors.pink[300],
+      //             ),
+      //           ),
+      //         ),
+      //         Container(
+      //           height: 10,
+      //           width: width * 0.2,
+      //           decoration: BoxDecoration(
+      //             shape: BoxShape.rectangle,
+      //             border: Border(
+      //               top: BorderSide(
+      //                 color: Colors.pink[300],
+      //                 width: 1,
+      //               ),
+      //               right: BorderSide(
+      //                 color: Colors.pink[300],
+      //                 width: 1,
+      //               ),
+      //               bottom: BorderSide(
+      //                 color: Colors.pink[300],
+      //                 width: 1,
+      //               ),
+      //               left: BorderSide(
+      //                 color: Colors.transparent,
+      //                 width: 1,
+      //               ),
+      //             ),
+      //           ),
+      //           child: DecoratedBox(
+      //             decoration: BoxDecoration(
+      //               color: Colors.pink[300],
+      //             ),
+      //           ),
+      //         ),
+      //         Container(
+      //           height: 10,
+      //           width: width * 0.2,
+      //           decoration: BoxDecoration(
+      //             shape: BoxShape.rectangle,
+      //             border: Border(
+      //               top: BorderSide(
+      //                 color: Colors.pink[300],
+      //                 width: 1,
+      //               ),
+      //               right: BorderSide(
+      //                 color: Colors.pink[300],
+      //                 width: 1,
+      //               ),
+      //               bottom: BorderSide(
+      //                 color: Colors.pink[300],
+      //                 width: 1,
+      //               ),
+      //               left: BorderSide(
+      //                 color: Colors.transparent,
+      //                 width: 1,
+      //               ),
+      //             ),
+      //           ),
+      //           child: DecoratedBox(
+      //             decoration: BoxDecoration(
+      //               color: Colors.pink[300],
+      //             ),
+      //           ),
+      //         ),
+      //       ],
+      //     ),
+      //   );
     }
   }
 }
