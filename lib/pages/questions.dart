@@ -27,15 +27,15 @@ class _UserState extends State<User> {
       body: PageView(
         controller: _pageController,
         children: <Widget>[
-          NewUser(
+          Question1(
               pageIndex: _pageIndex,
               onPageChanged: _onPageChanged,
               pageController: _pageController),
-          NewUser2(
+          Question2(
               pageIndex: _pageIndex,
               onPageChanged: _onPageChanged,
               pageController: _pageController),
-          NewUser3(),
+          Question3(),
         ],
         onPageChanged: _onPageChanged,
         physics: NeverScrollableScrollPhysics(),

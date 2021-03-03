@@ -6,12 +6,12 @@ import 'package:menstruating/pages/components/colordot.dart';
 import 'package:menstruating/pages/home.dart';
 import 'package:menstruating/services/auth.dart';
 
-class NewUser3 extends StatefulWidget {
+class Question3 extends StatefulWidget {
   @override
-  _NewUser3State createState() => _NewUser3State();
+  _Question3State createState() => _Question3State();
 }
 
-class _NewUser3State extends State<NewUser3>
+class _Question3State extends State<Question3>
     with AutomaticKeepAliveClientMixin {
   int selectedIndex = 0;
   final AuthService _auth = AuthService();

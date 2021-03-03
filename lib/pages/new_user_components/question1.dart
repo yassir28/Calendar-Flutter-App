@@ -4,20 +4,21 @@ import 'package:menstruating/pages/components/boxdialog.dart';
 import 'package:menstruating/pages/components/colordot.dart';
 import 'package:menstruating/pages/components/numbersList.dart';
 
-class NewUser extends StatefulWidget {
+class Question1 extends StatefulWidget {
   final int pageIndex;
   final ValueChanged<int> onPageChanged;
   final PageController pageController;
 
-  const NewUser(
+  const Question1(
       {Key key, this.pageIndex, this.onPageChanged, this.pageController})
       : super(key: key);
 
   @override
-  _NewUserState createState() => _NewUserState();
+  _Question1State createState() => _Question1State();
 }
 
-class _NewUserState extends State<NewUser> with AutomaticKeepAliveClientMixin {
+class _Question1State extends State<Question1>
+    with AutomaticKeepAliveClientMixin {
   int selectedIndex = 0;
   // int periodLenght = 0;
 
