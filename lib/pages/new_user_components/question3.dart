@@ -3,7 +3,7 @@ import 'package:menstruating/constants.dart';
 import 'package:menstruating/pages/components/boxdialog.dart';
 import 'package:menstruating/pages/components/calendrier.dart';
 import 'package:menstruating/pages/components/colordot.dart';
-import 'package:menstruating/pages/homepage.dart';
+import 'package:menstruating/pages/home.dart';
 import 'package:menstruating/services/auth.dart';
 
 class NewUser3 extends StatefulWidget {
@@ -56,7 +56,7 @@ class _NewUser3State extends State<NewUser3>
                 }
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => HomeScreen()),
+                  MaterialPageRoute(builder: (context) => Home()),
                 );
               },
               child: Text(

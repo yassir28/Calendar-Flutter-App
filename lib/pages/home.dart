@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:menstruating/models/queen.dart';
-import 'package:menstruating/pages/home_page_components/home.dart';
+import 'package:menstruating/pages/home_page_components/homescreen.dart';
 import 'package:menstruating/pages/home_page_components/profile.dart';
 import 'package:menstruating/pages/home_page_components/reports.dart';
 import 'package:menstruating/services/database.dart';
 import 'package:provider/provider.dart';
 
-class HomeScreen extends StatefulWidget {
+class Home extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _HomeState createState() => _HomeState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeState extends State<Home> {
   int pageNumber = 1;
   PageController pageController = PageController(initialPage: 1);
   final List screens = <Widget>[
     Reports(),
-    Home(),
+    HomeScreen(),
     Profile(),
   ];
 

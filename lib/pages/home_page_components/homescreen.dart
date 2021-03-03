@@ -4,7 +4,7 @@ import 'package:menstruating/models/queen.dart';
 import 'package:menstruating/pages/components/calendrier.dart';
 import 'package:provider/provider.dart';
 
-class Home extends StatelessWidget {
+class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // final queens = Provider.of<List<Queen>>(context);

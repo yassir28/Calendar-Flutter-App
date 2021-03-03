@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:menstruating/models/user.dart';
-import 'package:menstruating/pages/homepage.dart';
+import 'package:menstruating/pages/home.dart';
 import 'package:menstruating/pages/welcome.dart';
 import 'package:provider/provider.dart';
 
@@ -11,7 +11,7 @@ class Wrapper extends StatelessWidget {
     if (user == null) {
       return Welcome();
     } else {
-      return HomeScreen();
+      return Home();
     }
   }
 }

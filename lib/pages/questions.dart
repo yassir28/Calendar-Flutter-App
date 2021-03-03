@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:menstruating/pages/homepage.dart';
-import 'package:menstruating/pages/new_user_components/new_user.dart';
-import 'package:menstruating/pages/new_user_components/new_user2.dart';
-import 'package:menstruating/pages/new_user_components/new_user3.dart';
+import 'package:menstruating/pages/home.dart';
+import 'package:menstruating/pages/new_user_components/question1.dart';
+import 'package:menstruating/pages/new_user_components/question2.dart';
+import 'package:menstruating/pages/new_user_components/question3.dart';
 
 class User extends StatefulWidget {
   @override
@@ -66,8 +66,7 @@ class _UserState extends State<User> {
             onPressed: () {
               if (_pageIndex == 2) {
                 Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(
-                      builder: (BuildContext context) => HomeScreen()),
+                  MaterialPageRoute(builder: (BuildContext context) => Home()),
                 );
               } else {
                 _pageController.jumpToPage(++_pageIndex);

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:menstruating/constants.dart';
 import 'package:menstruating/pages/restoredata.dart';
-import 'package:menstruating/pages/user.dart';
+import 'package:menstruating/pages/questions.dart';
 
 class Welcome extends StatelessWidget {
   @override
