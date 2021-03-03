@@ -3,7 +3,7 @@ import 'package:menstruating/models/user.dart' as models;
 import 'package:menstruating/services/database.dart';
 
 class AuthService {
-  final firebase.FirebaseAuth _auth = firebase.FirebaseAuth.instance;
+  final firebase.FirebaseAuth _auth = firebase.FirebaseAuth.instance; //afain
 
   // create a user obj based on FirebaseUser
   models.User _userFromFirebaseUser(firebase.User user) {
@@ -24,7 +24,7 @@ class AuthService {
       firebase.User user = credential.user;
 
       //  create a new document for the user with the uid =>"dummy data"
-      await DataBaseService(uid: user.uid).updateUserData(3, 28, 15);
+      await DataBaseService(uid: user.uid).updateUserData(3, 28, null);
 
       return _userFromFirebaseUser(user);
     } catch (e) {

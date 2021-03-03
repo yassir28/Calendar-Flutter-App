@@ -10,7 +10,7 @@ class DataBaseService {
       FirebaseFirestore.instance.collection('Queens');
 
   Future updateUserData(
-      int periodLength, int periodCycle, int periodDate) async {
+      int periodLength, int periodCycle, Timestamp periodDate) async {
     return await userCollection.doc(uid).set({
       'period length': periodLength,
       'period cycle': periodCycle,
@@ -22,9 +22,9 @@ class DataBaseService {
   List<Queen> _queenListFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
       return Queen(
-        periodCycle: doc.data()['period cycle'] ?? 0,
-        periodLength: doc.data()['period length'] ?? 0,
-        periodDate: doc.data()['period date'] ?? 0,
+        periodCycle: doc.data()['period cycle'] ?? 28,
+        periodLength: doc.data()['period length'] ?? 3,
+        periodDate: doc.data()['period date'] ?? null,
       );
     }).toList();
   }

@@ -105,7 +105,7 @@ class Profile extends StatelessWidget {
             Card(
               child: ListTile(
                 onTap: () async {
-                  await _auth.signOut();
+                  //           await _auth.signOut();
                 },
                 title: Text("delete all records"),
                 leading: Icon(
