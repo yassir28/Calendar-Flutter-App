@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:menstruating/models/user.dart';
+import 'package:provider/provider.dart';
 
 class NumbersList extends StatefulWidget {
   final int numbermin;
   final int numbermax;
-  /*final ValueChanged onPeriodLengthChanged;*/
+  final Function onPeriodLengthChanged;
 
-  const NumbersList({
-    Key key,
-    @required this.numbermax,
-    @required this.numbermin,
-    /*this.onPeriodLengthChanged*/
-  }) : super(key: key);
+  const NumbersList(
+      {Key key,
+      @required this.numbermax,
+      @required this.numbermin,
+      this.onPeriodLengthChanged})
+      : super(key: key);
 
   @override
   _NumbersListState createState() => _NumbersListState();
@@ -18,12 +20,12 @@ class NumbersList extends StatefulWidget {
 
 class _NumbersListState extends State<NumbersList> {
   int _selectedItemIndex = 0;
-  bool isSelected = false;
-  Color color = Colors.grey[500];
+  Color _color = Colors.grey[500];
 
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+    final user = Provider.of<User>(context);
 
     return Stack(
       children: [
@@ -59,7 +61,7 @@ class _NumbersListState extends State<NumbersList> {
               itemExtent: 50,
               onSelectedItemChanged: (index) => setState(() {
                 _selectedItemIndex = index;
-                /*widget.onPeriodLengthChanged(_selectedItemIndex);*/
+                widget.onPeriodLengthChanged(_selectedItemIndex, user);
               }),
               childDelegate: ListWheelChildLoopingListDelegate(
                 children: List.generate(
@@ -73,7 +75,7 @@ class _NumbersListState extends State<NumbersList> {
                         style: Theme.of(context).textTheme.headline5.copyWith(
                             color: _selectedItemIndex == index
                                 ? Colors.pink[300]
-                                : color,
+                                : _color,
                             fontWeight: FontWeight.bold),
                       ),
                     ),

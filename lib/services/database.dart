@@ -10,7 +10,7 @@ class DataBaseService {
       FirebaseFirestore.instance.collection('Queens');
 
   Future updateUserData(
-      int periodLength, int periodCycle, Timestamp periodDate) async {
+      {int periodLength, int periodCycle, Timestamp periodDate}) async {
     return await userCollection.doc(uid).set({
       'period length': periodLength,
       'period cycle': periodCycle,

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:menstruating/pages/home.dart';
-import 'package:menstruating/pages/new_user_components/question1.dart';
-import 'package:menstruating/pages/new_user_components/question2.dart';
-import 'package:menstruating/pages/new_user_components/question3.dart';
+import 'package:menstruating/pages/questions_components/question1.dart';
+import 'package:menstruating/pages/questions_components/question2.dart';
+import 'package:menstruating/pages/questions_components/question3.dart';
 
-class User extends StatefulWidget {
+class Questions extends StatefulWidget {
   @override
-  _UserState createState() => _UserState();
+  _QuestionsState createState() => _QuestionsState();
 }
 
-class _UserState extends State<User> {
+class _QuestionsState extends State<Questions> {
   PageController _pageController = PageController();
 
   int _pageIndex = 0;

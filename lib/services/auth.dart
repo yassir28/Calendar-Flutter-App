@@ -24,7 +24,8 @@ class AuthService {
       firebase.User user = credential.user;
 
       //  create a new document for the user with the uid =>"dummy data"
-      await DataBaseService(uid: user.uid).updateUserData(3, 28, null);
+      await DataBaseService(uid: user.uid)
+          .updateUserData(periodLength: 3, periodCycle: 28, periodDate: null);
 
       return _userFromFirebaseUser(user);
     } catch (e) {

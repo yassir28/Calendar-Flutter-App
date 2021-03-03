@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:menstruating/constants.dart';
+import 'package:menstruating/models/user.dart';
 import 'package:menstruating/pages/components/boxdialog.dart';
 import 'package:menstruating/pages/components/colordot.dart';
 import 'package:menstruating/pages/components/numbersList.dart';
+import 'package:menstruating/services/database.dart';
 
 class Question1 extends StatefulWidget {
   final int pageIndex;
@@ -20,21 +22,15 @@ class Question1 extends StatefulWidget {
 class _Question1State extends State<Question1>
     with AutomaticKeepAliveClientMixin {
   int selectedIndex = 0;
-  // int periodLenght = 0;
+  int periodLenght = 0;
 
   void _refresh(bool _isSelected) {
     setState(() => selectedIndex = _isSelected ? 1 : 0);
   }
 
-  /*_onPeriodLengthChanged(int index) {
-     DatabaseReference _testRef =
-        FirebaseDatabase.instance.reference().child("period length");
-    _testRef.set(index);
-
-    setState(() {
-      periodLenght = index;
-    });
-  }*/
+  _onPeriodLengthChanged(int index, User user) async {
+    await DataBaseService(uid: user.uid).updateUserData(periodLength: index);
+  }
 
   buildPageScreen(int selectedIndex, double height) {
     switch (selectedIndex) {
@@ -88,7 +84,7 @@ class _Question1State extends State<Question1>
                 ),
               ),
               NumbersList(
-                /*onPeriodLengthChanged: _onPeriodLengthChanged,*/
+                onPeriodLengthChanged: _onPeriodLengthChanged,
                 numbermax: 14,
                 numbermin: 2,
               ),

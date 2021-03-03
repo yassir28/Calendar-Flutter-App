@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:menstruating/constants.dart';
-import 'package:menstruating/pages/restoredata.dart';
 import 'package:menstruating/pages/questions.dart';
+import 'package:menstruating/pages/restoredata.dart';
 
 class Welcome extends StatelessWidget {
   @override
@@ -45,7 +45,7 @@ class Welcome extends StatelessWidget {
                   press: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => User()),
+                      MaterialPageRoute(builder: (context) => Questions()),
                     );
                   },
                 ),
