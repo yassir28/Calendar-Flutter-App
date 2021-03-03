@@ -15,7 +15,7 @@ class DataBaseService {
       'period length': periodLength,
       'period cycle': periodCycle,
       'period date': periodDate
-    });
+    }, SetOptions(merge: true));
   }
 
 // queen list from snapshot
