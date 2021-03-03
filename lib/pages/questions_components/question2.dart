@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:menstruating/constants.dart';
+import 'package:menstruating/models/user.dart';
 import 'package:menstruating/pages/components/boxdialog.dart';
 import 'package:menstruating/pages/components/colordot.dart';
 import 'package:menstruating/pages/components/numbersList.dart';
+import 'package:menstruating/services/database.dart';
 
 class Question2 extends StatefulWidget {
   final int pageIndex;
@@ -19,9 +21,14 @@ class Question2 extends StatefulWidget {
 class _Question2State extends State<Question2>
     with AutomaticKeepAliveClientMixin {
   int selectedIndex = 0;
-
+  int _numbermin = 15;
   void _refresh(bool _isSelected) {
     setState(() => selectedIndex = _isSelected ? 1 : 0);
+  }
+
+  _onPeriodCycleChanged(int index, User user) async {
+    await DataBaseService(uid: user.uid)
+        .updateUserData(periodCycle: index + _numbermin);
   }
 
   buildBodyScreen(int selectedIndex, double height) {
@@ -63,8 +70,9 @@ class _Question2State extends State<Question2>
                 ),
               ),
               NumbersList(
+                onChanged: _onPeriodCycleChanged,
                 numbermax: 100,
-                numbermin: 15,
+                numbermin: _numbermin,
               ),
             ],
           ),

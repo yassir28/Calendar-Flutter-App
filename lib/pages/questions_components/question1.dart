@@ -23,13 +23,14 @@ class _Question1State extends State<Question1>
     with AutomaticKeepAliveClientMixin {
   int selectedIndex = 0;
   int periodLenght = 0;
-
+  int _numbermin = 2;
   void _refresh(bool _isSelected) {
     setState(() => selectedIndex = _isSelected ? 1 : 0);
   }
 
   _onPeriodLengthChanged(int index, User user) async {
-    await DataBaseService(uid: user.uid).updateUserData(periodLength: index);
+    await DataBaseService(uid: user.uid)
+        .updateUserData(periodLength: index + _numbermin);
   }
 
   buildPageScreen(int selectedIndex, double height) {
@@ -84,9 +85,9 @@ class _Question1State extends State<Question1>
                 ),
               ),
               NumbersList(
-                onPeriodLengthChanged: _onPeriodLengthChanged,
+                onChanged: _onPeriodLengthChanged,
                 numbermax: 14,
-                numbermin: 2,
+                numbermin: _numbermin,
               ),
             ],
           ),

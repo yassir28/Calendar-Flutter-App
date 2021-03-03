@@ -5,13 +5,13 @@ import 'package:provider/provider.dart';
 class NumbersList extends StatefulWidget {
   final int numbermin;
   final int numbermax;
-  final Function onPeriodLengthChanged;
+  final Function onChanged;
 
   const NumbersList(
       {Key key,
       @required this.numbermax,
       @required this.numbermin,
-      this.onPeriodLengthChanged})
+      this.onChanged})
       : super(key: key);
 
   @override
@@ -59,10 +59,12 @@ class _NumbersListState extends State<NumbersList> {
               physics: const FixedExtentScrollPhysics(),
               diameterRatio: 100,
               itemExtent: 50,
-              onSelectedItemChanged: (index) => setState(() {
-                _selectedItemIndex = index;
-                widget.onPeriodLengthChanged(_selectedItemIndex, user);
-              }),
+              onSelectedItemChanged: (index) {
+                setState(() {
+                  _selectedItemIndex = index;
+                });
+                widget.onChanged(_selectedItemIndex, user);
+              },
               childDelegate: ListWheelChildLoopingListDelegate(
                 children: List.generate(
                   widget.numbermax - widget.numbermin + 1,
