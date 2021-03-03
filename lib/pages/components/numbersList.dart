@@ -33,19 +33,14 @@ class _NumbersListState extends State<NumbersList> {
           height: 250,
           alignment: Alignment.center,
           child: Container(
-            height: 50,
-            width: width,
+            height: width * 0.12,
+            width: width * 0.12,
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              border: Border(
-                top: BorderSide(
-                  color: Colors.pink[300],
-                  width: 2,
-                ),
-                bottom: BorderSide(
-                  color: Colors.pink[300],
-                  width: 2,
-                ),
+              shape: BoxShape.circle,
+              border: Border.all(
+                color: Colors.pink[300],
+                width: 2,
               ),
             ),
           ),
