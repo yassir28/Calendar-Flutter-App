@@ -22,13 +22,17 @@ class _Question2State extends State<Question2>
     with AutomaticKeepAliveClientMixin {
   int selectedIndex = 0;
   int _numbermin = 15;
-  void _refresh(bool _isSelected) {
+
+  void _refresh(bool _isSelected, User user) async {
     setState(() => selectedIndex = _isSelected ? 1 : 0);
+    if (selectedIndex == 1) {
+      await DataBaseService(uid: user.uid).updatePeriodCycle(periodCycle: null);
+    }
   }
 
   _onPeriodCycleChanged(int index, User user) async {
     await DataBaseService(uid: user.uid)
-        .updateUserData(periodCycle: index + _numbermin);
+        .updatePeriodCycle(periodCycle: index + _numbermin);
   }
 
   buildBodyScreen(int selectedIndex, double height) {

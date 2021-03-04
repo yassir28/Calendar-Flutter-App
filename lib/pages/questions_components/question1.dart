@@ -29,13 +29,14 @@ class _Question1State extends State<Question1>
   void _refresh(bool _isSelected, User user) async {
     setState(() => selectedIndex = _isSelected ? 1 : 0);
     if (selectedIndex == 1) {
-      await DataBaseService(uid: user.uid).updateUserData(periodLength: null);
+      await DataBaseService(uid: user.uid)
+          .updatePeriodLength(periodLength: null);
     }
   }
 
   _onPeriodLengthChanged(int index, User user) async {
     await DataBaseService(uid: user.uid)
-        .updateUserData(periodLength: index + _numbermin);
+        .updatePeriodLength(periodLength: index + _numbermin);
   }
 
   buildPageScreen(int selectedIndex, double height) {

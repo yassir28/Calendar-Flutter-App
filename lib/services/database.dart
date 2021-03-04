@@ -9,14 +9,21 @@ class DataBaseService {
   final CollectionReference users =
       FirebaseFirestore.instance.collection('Queens');
 
-  Future updateUserData(
-      {int periodLength, int periodCycle, Timestamp periodDate}) async {
+  Future updatePeriodLength({int periodLength /*Timestamp periodDate*/}) async {
     return await users
         .doc(uid)
         .set({
           'period length': periodLength,
+        }, SetOptions(merge: true))
+        .then((value) => print('User Updated Suxsuxfully'))
+        .catchError((error) => print(error));
+  }
+
+  Future updatePeriodCycle({int periodCycle}) async {
+    return await users
+        .doc(uid)
+        .set({
           'period cycle': periodCycle,
-          'period date': periodDate
         }, SetOptions(merge: true))
         .then((value) => print('User Updated Suxsuxfully'))
         .catchError((error) => print(error));
