@@ -6,16 +6,20 @@ class DataBaseService {
   DataBaseService({this.uid});
 
   //collection reference
-  final CollectionReference userCollection =
+  final CollectionReference users =
       FirebaseFirestore.instance.collection('Queens');
 
   Future updateUserData(
       {int periodLength, int periodCycle, Timestamp periodDate}) async {
-    return await userCollection.doc(uid).set({
-      'period length': periodLength,
-      'period cycle': periodCycle,
-      'period date': periodDate
-    }, SetOptions(merge: true));
+    return await users
+        .doc(uid)
+        .update({
+          'period length': periodLength,
+          'period cycle': periodCycle,
+          'period date': periodDate
+        })
+        .then((value) => print('User Updated Suxsuxfully'))
+        .catchError((error) => print(error));
   }
 
 // queen list from snapshot
@@ -31,7 +35,7 @@ class DataBaseService {
 
 // when data change in db we use can use this stream to provide us with changes
   Stream<List<Queen>> get queens {
-    return userCollection
+    return users
         .snapshots()
         .map((snapshot) => _queenListFromSnapshot(snapshot));
   }
