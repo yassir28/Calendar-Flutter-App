@@ -5,6 +5,7 @@ import 'package:menstruating/pages/components/boxdialog.dart';
 import 'package:menstruating/pages/components/colordot.dart';
 import 'package:menstruating/pages/components/numbersList.dart';
 import 'package:menstruating/services/database.dart';
+import 'package:provider/provider.dart';
 
 class Question1 extends StatefulWidget {
   final int pageIndex;
@@ -24,8 +25,12 @@ class _Question1State extends State<Question1>
   int selectedIndex = 0;
   int periodLenght = 0;
   int _numbermin = 2;
-  void _refresh(bool _isSelected) {
+
+  void _refresh(bool _isSelected, User user) async {
     setState(() => selectedIndex = _isSelected ? 1 : 0);
+    if (selectedIndex == 1) {
+      await DataBaseService(uid: user.uid).updateUserData(periodLength: null);
+    }
   }
 
   _onPeriodLengthChanged(int index, User user) async {

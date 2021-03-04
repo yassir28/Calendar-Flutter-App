@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:menstruating/constants.dart';
+import 'package:menstruating/models/user.dart';
+import 'package:provider/provider.dart';
 
 class ColorDot extends StatefulWidget {
   final Function refresh;
@@ -14,11 +16,13 @@ class _ColorDotState extends State<ColorDot> {
   bool isSelected = false;
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<User>(context);
+
     return GestureDetector(
       onTap: () {
         setState(() {
           isSelected = isSelected ? false : true;
-          widget.refresh(isSelected);
+          widget.refresh(isSelected, user);
         });
       },
       child: Container(

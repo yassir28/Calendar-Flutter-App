@@ -14,7 +14,6 @@ class Question3 extends StatefulWidget {
 class _Question3State extends State<Question3>
     with AutomaticKeepAliveClientMixin {
   int selectedIndex = 0;
-  final AuthService _auth = AuthService();
 
   void _refresh(bool _isSelected) {
     setState(() => selectedIndex = _isSelected ? 1 : 0);
@@ -47,13 +46,7 @@ class _Question3State extends State<Question3>
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(13),
                   side: BorderSide(color: Colors.pink[300])),
-              onPressed: () async {
-                dynamic result = await _auth.singInAnon();
-                if (result == null) {
-                  print('there is an error');
-                } else {
-                  print(result.uid);
-                }
+              onPressed: () {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => Home()),

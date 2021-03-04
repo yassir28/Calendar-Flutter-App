@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:menstruating/constants.dart';
 import 'package:menstruating/pages/questions.dart';
 import 'package:menstruating/pages/restoredata.dart';
+import 'package:menstruating/services/auth.dart';
 
 class Welcome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
+    final AuthService _auth = AuthService();
+
     return Scaffold(
       backgroundColor: Color(0xfff4e6f0),
       body: SafeArea(
@@ -42,7 +45,13 @@ class Welcome extends StatelessWidget {
                   width: width * 0.8,
                   height: height * 0.075,
                   text: Text("New User", style: TextStyle(color: Colors.white)),
-                  press: () {
+                  press: () async {
+                    dynamic result = await _auth.singInAnon();
+                    if (result == null) {
+                      print('there is an error');
+                    } else {
+                      print(result.uid);
+                    }
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => Questions()),

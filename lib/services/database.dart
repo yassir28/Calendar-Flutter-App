@@ -13,11 +13,11 @@ class DataBaseService {
       {int periodLength, int periodCycle, Timestamp periodDate}) async {
     return await users
         .doc(uid)
-        .update({
+        .set({
           'period length': periodLength,
           'period cycle': periodCycle,
           'period date': periodDate
-        })
+        }, SetOptions(merge: true))
         .then((value) => print('User Updated Suxsuxfully'))
         .catchError((error) => print(error));
   }
