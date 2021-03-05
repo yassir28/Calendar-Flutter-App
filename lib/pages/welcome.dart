@@ -3,6 +3,7 @@ import 'package:menstruating/constants.dart';
 import 'package:menstruating/pages/questions.dart';
 import 'package:menstruating/pages/restoredata.dart';
 import 'package:menstruating/services/auth.dart';
+import 'package:menstruating/services/database.dart';
 
 class Welcome extends StatelessWidget {
   @override
@@ -52,7 +53,15 @@ class Welcome extends StatelessWidget {
                     } else {
                       print(result.uid);
                     }
-                    Navigator.push(
+
+                    // we initiate it with current data
+                    await DataBaseService(uid: result.uid).initiatePeriodData(
+                        periodDate: DateTime.now(),
+                        periodCycle: 28,
+                        periodLength: 5);
+
+                    //must be replaced cos we dont want to re-initiate bd
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) => Questions()),
                     );
