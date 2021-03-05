@@ -5,7 +5,6 @@ import 'package:menstruating/pages/components/boxdialog.dart';
 import 'package:menstruating/pages/components/colordot.dart';
 import 'package:menstruating/pages/components/numbersList.dart';
 import 'package:menstruating/services/database.dart';
-import 'package:provider/provider.dart';
 
 class Question1 extends StatefulWidget {
   final int pageIndex;
@@ -178,6 +177,5 @@ class _Question1State extends State<Question1>
   }
 
   @override
-  // TODO: implement wantKeepAlive
   bool get wantKeepAlive => true;
 }

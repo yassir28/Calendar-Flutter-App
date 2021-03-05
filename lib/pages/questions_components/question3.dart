@@ -4,7 +4,6 @@ import 'package:menstruating/pages/components/boxdialog.dart';
 import 'package:menstruating/pages/components/calendrier.dart';
 import 'package:menstruating/pages/components/colordot.dart';
 import 'package:menstruating/pages/home.dart';
-import 'package:menstruating/services/auth.dart';
 
 class Question3 extends StatefulWidget {
   @override
@@ -133,6 +132,5 @@ class _Question3State extends State<Question3>
   }
 
   @override
-  // TODO: implement wantKeepAlive
   bool get wantKeepAlive => true;
 }

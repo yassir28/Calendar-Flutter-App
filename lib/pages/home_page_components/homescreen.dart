@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:menstruating/constants.dart';
-import 'package:menstruating/models/queen.dart';
 import 'package:menstruating/pages/components/calendrier.dart';
-import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
   @override

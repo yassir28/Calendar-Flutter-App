@@ -161,6 +161,5 @@ class _Question2State extends State<Question2>
   }
 
   @override
-  // TODO: implement wantKeepAlive
   bool get wantKeepAlive => true;
 }
