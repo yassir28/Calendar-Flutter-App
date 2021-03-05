@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:menstruating/constants.dart';
+import 'package:menstruating/models/user.dart';
 import 'package:menstruating/pages/components/boxdialog.dart';
 import 'package:menstruating/pages/components/calendrier.dart';
 import 'package:menstruating/pages/components/colordot.dart';
 import 'package:menstruating/pages/home.dart';
+import 'package:menstruating/services/database.dart';
 
 class Question3 extends StatefulWidget {
   @override
@@ -13,10 +15,6 @@ class Question3 extends StatefulWidget {
 class _Question3State extends State<Question3>
     with AutomaticKeepAliveClientMixin {
   int selectedIndex = 0;
-
-  void _refresh(bool _isSelected) {
-    setState(() => selectedIndex = _isSelected ? 1 : 0);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +32,10 @@ class _Question3State extends State<Question3>
             padding: const EdgeInsets.all(KDefaultPaddin),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [ColorDot(refresh: _refresh), Text("I don't know")],
+              children: [
+                ColorDot(refresh: _refresh),
+                Text("I don't know"),
+              ],
             ),
           ),
           Container(
@@ -65,6 +66,18 @@ class _Question3State extends State<Question3>
         ],
       ),
     );
+  }
+
+  void _refresh(bool _isSelected, User user) async {
+    setState(() => selectedIndex = _isSelected ? 1 : 0);
+    if (selectedIndex == 1) {
+      await DataBaseService(uid: user.uid).updatePeriodDate(periodDate: null);
+    }
+  }
+
+  void _onDaySelected(User user, DateTime date) async {
+    print(date.toIso8601String());
+    await DataBaseService(uid: user.uid).updatePeriodDate(periodDate: date);
   }
 
   buildBodyScreen({int selectedIndex, double height}) {
@@ -107,7 +120,9 @@ class _Question3State extends State<Question3>
             Container(
               margin: EdgeInsets.all(KDefaultPaddin),
               height: height * 0.47,
-              child: Calendar(),
+              child: Calendar(
+                onDaySelected: _onDaySelected,
+              ),
             ),
           ],
         );

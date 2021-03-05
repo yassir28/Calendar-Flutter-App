@@ -29,6 +29,16 @@ class DataBaseService {
         .catchError((error) => print(error));
   }
 
+  Future updatePeriodDate({DateTime periodDate}) async {
+    return await users
+        .doc(uid)
+        .set({
+          'period date': periodDate,
+        }, SetOptions(merge: true))
+        .then((value) => print('User Updated Suxsuxfully'))
+        .catchError((error) => print(error));
+  }
+
 // queen list from snapshot
   List<Queen> _queenListFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {

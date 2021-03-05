@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:menstruating/models/user.dart';
+import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class Calendar extends StatefulWidget {
+  final Function onDaySelected;
+
+  const Calendar({Key key, this.onDaySelected}) : super(key: key);
   @override
   _CalendarState createState() => _CalendarState();
 }
@@ -16,6 +21,8 @@ class _CalendarState extends State<Calendar> {
 
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<User>(context);
+
     return Scaffold(
       body: SingleChildScrollView(
         child: TableCalendar(
@@ -40,8 +47,13 @@ class _CalendarState extends State<Calendar> {
           startingDayOfWeek: StartingDayOfWeek.monday,
           onDaySelected: (date, events, holidays) {
             print(date.toIso8601String());
+            widget.onDaySelected(user, date);
           },
+
           calendarController: _controller,
+          // builders: CalendarBuilders(
+          //   dayBuilder: ,
+          // ),
         ),
       ),
     );
