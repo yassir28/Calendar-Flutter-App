@@ -106,7 +106,8 @@ class _Question3State extends State<Question3>
               ),
             ),
             Container(
-              height: height * 0.55,
+              margin: EdgeInsets.all(KDefaultPaddin),
+              height: height * 0.47,
               child: Calendar(),
             ),
           ],
@@ -114,7 +115,8 @@ class _Question3State extends State<Question3>
         break;
       case 1:
         return Container(
-          height: height * 0.65,
+          margin: EdgeInsets.all(KDefaultPaddin),
+          height: height * 0.57,
           child: Center(
             child: Text(
               "Answered.",

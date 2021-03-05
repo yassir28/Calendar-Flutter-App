@@ -25,12 +25,14 @@ class _NumbersListState extends State<NumbersList> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+
     final user = Provider.of<User>(context);
 
     return Stack(
       children: [
         Container(
-          height: 250,
+          height: height * 0.5,
           alignment: Alignment.center,
           child: Container(
             height: width * 0.12,

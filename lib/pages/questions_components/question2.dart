@@ -39,10 +39,12 @@ class _Question2State extends State<Question2>
     switch (selectedIndex) {
       case 0:
         return Container(
-          height: height * 0.65,
+          // height: height * 0.65,
           child: Column(
             children: [
               Container(
+                margin: EdgeInsets.all(KDefaultPaddin),
+                height: height * 0.12,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -73,10 +75,13 @@ class _Question2State extends State<Question2>
                   ],
                 ),
               ),
-              NumbersList(
-                onChanged: _onPeriodCycleChanged,
-                numbermax: 100,
-                numbermin: _numbermin,
+              Container(
+                height: height * 0.45,
+                child: NumbersList(
+                  onChanged: _onPeriodCycleChanged,
+                  numbermax: 100,
+                  numbermin: _numbermin,
+                ),
               ),
             ],
           ),
@@ -84,7 +89,8 @@ class _Question2State extends State<Question2>
         break;
       case 1:
         return Container(
-          height: height * 0.65,
+          margin: EdgeInsets.all(KDefaultPaddin),
+          height: height * 0.57,
           child: Center(
             child: Text(
               "Answered.",
