@@ -1,14 +1,25 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:menstruating/constants.dart';
+import 'package:menstruating/models/user.dart';
 import 'package:menstruating/pages/components/calendrier.dart';
+import 'package:menstruating/services/database.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
+  void showData(User user) async {
+    DocumentSnapshot result = await DataBaseService(uid: user.uid).getData();
+    print(result.data());
+  }
+
   @override
   Widget build(BuildContext context) {
-    // final queens = Provider.of<List<Queen>>(context);
+    final user = Provider.of<User>(context);
 
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
+
+    showData(user);
 
     return Scaffold(
       appBar: AppBar(

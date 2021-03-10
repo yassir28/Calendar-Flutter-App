@@ -4,4 +4,4 @@ class User {
   User({this.uid});
 }
 
-//these are our users infos.
+//this is our use'rs id.

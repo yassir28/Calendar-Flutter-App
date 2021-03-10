@@ -5,3 +5,5 @@ class Queen {
 
   Queen({this.periodCycle, this.periodLength, this.periodDate});
 }
+
+// data collected

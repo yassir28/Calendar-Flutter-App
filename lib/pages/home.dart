@@ -1,5 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:menstruating/models/queen.dart';
+import 'package:menstruating/models/user.dart';
 import 'package:menstruating/pages/home_page_components/homescreen.dart';
 import 'package:menstruating/pages/home_page_components/profile.dart';
 import 'package:menstruating/pages/home_page_components/reports.dart';
@@ -32,46 +34,46 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return StreamProvider<List<Queen>>.value(
-      value: DataBaseService().queens,
-      child: Scaffold(
-        body: PageView(
-          physics: NeverScrollableScrollPhysics(),
-          controller: pageController,
-          children: screens,
-          onPageChanged: onPageChanged,
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: pageNumber,
-          selectedLabelStyle: TextStyle(
-              color: Colors.pink[300],
-              fontSize: 12,
-              fontWeight: FontWeight.bold),
-          unselectedLabelStyle: TextStyle(fontSize: 11, color: Colors.grey),
-          selectedIconTheme: IconThemeData(color: Colors.pink[300], size: 32),
-          unselectedIconTheme:
-              IconThemeData(size: 26, color: Colors.grey.shade300),
-          onTap: onItemTapped,
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.insert_chart_rounded,
-              ),
-              label: "Reports",
+    // final user = Provider.of<User>(context);
+
+    // return StreamProvider<DocumentSnapshot>.value(
+    //   value: DataBaseService(user.uid).queen,
+    //   child: Scaffold(
+    return Scaffold(
+      body: PageView(
+        physics: NeverScrollableScrollPhysics(),
+        controller: pageController,
+        children: screens,
+        onPageChanged: onPageChanged,
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: pageNumber,
+        selectedLabelStyle: TextStyle(
+            color: Colors.pink[300], fontSize: 12, fontWeight: FontWeight.bold),
+        unselectedLabelStyle: TextStyle(fontSize: 11, color: Colors.grey),
+        selectedIconTheme: IconThemeData(color: Colors.pink[300], size: 32),
+        unselectedIconTheme:
+            IconThemeData(size: 26, color: Colors.grey.shade300),
+        onTap: onItemTapped,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.insert_chart_rounded,
             ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-              ),
-              label: "Home",
+            label: "Reports",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home,
             ),
-            BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.text_snippet,
-                ),
-                label: "Profile")
-          ],
-        ),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.text_snippet,
+              ),
+              label: "Profile")
+        ],
       ),
     );
   }
