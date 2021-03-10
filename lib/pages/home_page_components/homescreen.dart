@@ -12,6 +12,11 @@ class HomeScreen extends StatelessWidget {
     print(result.data());
   }
 
+  Future<int> showLength(User user) async {
+    DocumentSnapshot result = await DataBaseService(uid: user.uid).getData();
+    return result.data()['period Length'];
+  }
+
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<User>(context);
@@ -20,6 +25,8 @@ class HomeScreen extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
 
     showData(user);
+
+    showLength(user);
 
     return Scaffold(
       appBar: AppBar(
