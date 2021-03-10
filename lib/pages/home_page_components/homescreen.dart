@@ -9,17 +9,23 @@ import 'package:provider/provider.dart';
 class HomeScreen extends StatelessWidget {
   Future<int> getLength(User user) async {
     DocumentSnapshot result = await DataBaseService(uid: user.uid).getData();
+    print(result.data()['period length']);
     return result.data()['period length'];
   }
 
   Future<int> getCycle(User user) async {
     DocumentSnapshot result = await DataBaseService(uid: user.uid).getData();
+    print(result.data()['period cycle']);
     return result.data()['period cycle'];
   }
 
   Future<DateTime> getDate(User user) async {
     DocumentSnapshot result = await DataBaseService(uid: user.uid).getData();
-    return result.data()['period date'];
+    Timestamp time = result.data()['period date'];
+    DateTime date =
+        new DateTime.fromMicrosecondsSinceEpoch(time.microsecondsSinceEpoch);
+    print(date);
+    return date;
   }
 
   @override
