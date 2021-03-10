@@ -7,14 +7,19 @@ import 'package:menstruating/services/database.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
-  void showData(User user) async {
+  Future<int> getLength(User user) async {
     DocumentSnapshot result = await DataBaseService(uid: user.uid).getData();
-    print(result.data());
+    return result.data()['period length'];
   }
 
-  Future<int> showLength(User user) async {
+  Future<int> getCycle(User user) async {
     DocumentSnapshot result = await DataBaseService(uid: user.uid).getData();
-    return result.data()['period Length'];
+    return result.data()['period cycle'];
+  }
+
+  Future<DateTime> getDate(User user) async {
+    DocumentSnapshot result = await DataBaseService(uid: user.uid).getData();
+    return result.data()['period date'];
   }
 
   @override
@@ -24,9 +29,11 @@ class HomeScreen extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
-    showData(user);
+    getLength(user);
 
-    showLength(user);
+    getCycle(user);
+
+    getDate(user);
 
     return Scaffold(
       appBar: AppBar(
