@@ -13,14 +13,10 @@ class Calendar extends StatefulWidget {
 
 class _CalendarState extends State<Calendar> {
   CalendarController _controller;
-  Map<DateTime, List<dynamic>> _events;
-  List<dynamic> _selectedEvents;
   @override
   void initState() {
     super.initState();
     _controller = CalendarController();
-    _events = {};
-    _selectedEvents = [];
   }
 
   @override
@@ -51,16 +47,10 @@ class _CalendarState extends State<Calendar> {
           startingDayOfWeek: StartingDayOfWeek.monday,
           onDaySelected: (date, events, holidays) {
             print(date.toIso8601String());
-            setState(() {
-              _selectedEvents = events;
-            });
+
             widget.onDaySelected(user, date);
           },
-
           calendarController: _controller,
-          // builders: CalendarBuilders(
-          //   dayBuilder: ,
-          // ),
         ),
       ),
     );
