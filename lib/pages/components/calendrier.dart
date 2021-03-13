@@ -13,10 +13,33 @@ class Calendar extends StatefulWidget {
 
 class _CalendarState extends State<Calendar> {
   CalendarController _controller;
+  Map<DateTime, List<dynamic>> _events;
+  List<dynamic> _selectedEvents;
   @override
   void initState() {
     super.initState();
     _controller = CalendarController();
+    _events = {};
+    _selectedEvents = [];
+  }
+
+  Widget _buildEventsMarker(DateTime date, List events) {
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
+
+      //supposedly its ovulation.
+
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: _controller.isSelected(date)
+            ? Colors.pink[300]
+            : _controller.isToday(date)
+                ? Colors.pink[400]
+                : Colors.indigo[400],
+      ),
+      width: 16.0,
+      height: 16.0,
+    );
   }
 
   @override
@@ -47,9 +70,26 @@ class _CalendarState extends State<Calendar> {
           startingDayOfWeek: StartingDayOfWeek.monday,
           onDaySelected: (date, events, holidays) {
             print(date.toIso8601String());
-
+            setState(() {
+              _selectedEvents = events;
+            });
             widget.onDaySelected(user, date);
           },
+          builders: CalendarBuilders(
+            markersBuilder: (context, date, events, holidays) {
+              final children = <Widget>[];
+              if (events.isNotEmpty) {
+                children.add(
+                  Positioned(
+                    right: 1,
+                    bottom: 1,
+                    child: _buildEventsMarker(date, events),
+                  ),
+                );
+              }
+              return children;
+            },
+          ),
           calendarController: _controller,
         ),
       ),
