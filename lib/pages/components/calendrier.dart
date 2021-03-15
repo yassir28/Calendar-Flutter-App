@@ -15,6 +15,26 @@ class _CalendarState extends State<Calendar> {
   CalendarController _controller;
   DateTime _selectedDay;
 
+  int periodLength = 3;
+  int periodCycle = 28;
+  DateTime periodDate = DateTime.now().add(Duration(hours: 60));
+
+  List<DateTime> periodDays = [];
+
+  periodCall() {
+    if (periodDate == null) {
+      return;
+    } else {
+      setState(() {
+        periodDays = List.generate(
+            periodLength,
+            (i) => DateTime(
+                periodDate.year, periodDate.month, periodDate.day + (i)));
+      });
+    }
+    print(periodDays);
+  }
+
   // Map<DateTime, List<dynamic>> _events;
   // List<dynamic> _selectedEvents;
   @override
@@ -23,6 +43,7 @@ class _CalendarState extends State<Calendar> {
     _controller = CalendarController();
     // _events = {};
     // _selectedEvents = [];
+    periodCall();
   }
 
   // Widget _buildEventsMarker(DateTime date, List events) {
