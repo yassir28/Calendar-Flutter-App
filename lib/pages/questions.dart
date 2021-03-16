@@ -1,8 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:menstruating/models/user.dart';
 import 'package:menstruating/pages/home.dart';
 import 'package:menstruating/pages/questions_components/question1.dart';
 import 'package:menstruating/pages/questions_components/question2.dart';
 import 'package:menstruating/pages/questions_components/question3.dart';
+import 'package:menstruating/services/database.dart';
+import 'package:provider/provider.dart';
 
 class Questions extends StatefulWidget {
   @override
@@ -23,6 +27,7 @@ class _QuestionsState extends State<Questions> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: PageView(
         controller: _pageController,

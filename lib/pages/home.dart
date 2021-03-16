@@ -34,11 +34,6 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    // final user = Provider.of<User>(context);
-
-    // return StreamProvider<DocumentSnapshot>.value(
-    //   value: DataBaseService(user.uid).queen,
-    //   child: Scaffold(
     return Scaffold(
       body: PageView(
         physics: NeverScrollableScrollPhysics(),

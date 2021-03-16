@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:menstruating/models/queen.dart';
 
 class DataBaseService {
   final String uid;
@@ -49,6 +50,14 @@ class DataBaseService {
         }, SetOptions(merge: true))
         .then((value) => print('User Updated Suxsuxfully'))
         .catchError((error) => print(error));
+  }
+
+  listFromDocumentSnapshot(DocumentSnapshot doc) {
+    return doc.data();
+  }
+
+  Stream get queen {
+    return users.doc(uid).snapshots();
   }
 
   Future getData() async {

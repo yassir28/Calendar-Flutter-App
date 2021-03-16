@@ -35,35 +35,13 @@ class _CalendarState extends State<Calendar> {
     print(periodDays);
   }
 
-  // Map<DateTime, List<dynamic>> _events;
-  // List<dynamic> _selectedEvents;
   @override
   void initState() {
     super.initState();
     _controller = CalendarController();
-    // _events = {};
-    // _selectedEvents = [];
+
     periodCall();
   }
-
-  // Widget _buildEventsMarker(DateTime date, List events) {
-  //   return AnimatedContainer(
-  //     duration: const Duration(milliseconds: 300),
-
-  //     //supposedly its period days.
-
-  //     decoration: BoxDecoration(
-  //       shape: BoxShape.circle,
-  //       color: _controller.isSelected(date)
-  //           ? Colors.pink[300]
-  //           : _controller.isToday(date)
-  //               ? Colors.pink[400]
-  //               : Colors.indigo[400],
-  //     ),
-  //     width: 16.0,
-  //     height: 16.0,
-  //   );
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -75,15 +53,6 @@ class _CalendarState extends State<Calendar> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             TableCalendar(
-              calendarStyle: CalendarStyle(
-                todayColor: Colors.indigo[400],
-                selectedColor: Colors.pink[300],
-                selectedStyle: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                  color: Colors.white,
-                ),
-              ),
               headerStyle: HeaderStyle(
                 centerHeaderTitle: true,
                 formatButtonDecoration: BoxDecoration(
@@ -101,113 +70,137 @@ class _CalendarState extends State<Calendar> {
                 widget.onDaySelected(user, date);
               },
               builders: CalendarBuilders(
-                  // dayBuilder: (context, date, events) {
-                  //   final anyPeriodDay = periodDays.any((DateTime day) =>
-                  //       day.day == date.day && day.month == date.month);
-                  //   if (date == _selectedDay) {
-                  //     return Container(
-                  //       margin: const EdgeInsets.all(4.0),
-                  //       alignment: Alignment.center,
-                  //       decoration: BoxDecoration(
-                  //         shape: BoxShape.circle,
-                  //         color: Colors.pink[300],
-                  //       ),
-                  //       child: Center(
-                  //         child: Text(
-                  //           date.day.toString(),
-                  //           style: TextStyle(
-                  //             fontSize: 18,
-                  //             color: Colors.white,
-                  //           ),
-                  //         ),
-                  //       ),
-                  //     );
-                  //   } else if (anyPeriodDay) {
-                  //     if (date.day == DateTime.now().day) {
-                  //       return Container(
-                  //         margin: const EdgeInsets.all(4.0),
-                  //         alignment: Alignment.center,
-                  //         decoration: BoxDecoration(
-                  //           shape: BoxShape.circle,
-                  //           border: Border.all(color: Colors.indigo[400], width: 3),
-                  //         ),
-                  //         child: Center(
-                  //           child: Text(
-                  //             date.day.toString(),
-                  //             style: TextStyle(
-                  //               fontSize: 18,
-                  //               color: Colors.pink[400],
-                  //             ),
-                  //           ),
-                  //         ),
-                  //       );
-                  //     } else {
-                  //       return Container(
-                  //         color: Colors.grey[50],
-                  //         width: 50,
-                  //         height: 50,
-                  //         child: Center(
-                  //           child: Text(
-                  //             date.day.toString(),
-                  //             style: TextStyle(
-                  //               fontSize: 18,
-                  //               color: Colors.pink[400],
-                  //             ),
-                  //           ),
-                  //         ),
-                  //       );
-                  //     }
-                  //   } else {
-                  //     if (date.day == DateTime.now().day) {
-                  //       return Container(
-                  //         margin: const EdgeInsets.all(4.0),
-                  //         alignment: Alignment.center,
-                  //         decoration: BoxDecoration(
-                  //           shape: BoxShape.circle,
-                  //           border: Border.all(color: Colors.indigo[400], width: 3),
-                  //         ),
-                  //         child: Center(
-                  //           child: Text(
-                  //             date.day.toString(),
-                  //             style: TextStyle(
-                  //               fontSize: 18,
-                  //               color: Colors.black,
-                  //             ),
-                  //           ),
-                  //         ),
-                  //       );
-                  //     } else {
-                  //       return Container(
-                  //         color: Colors.grey[50],
-                  //         width: 50,
-                  //         height: 50,
-                  //         child: Center(
-                  //           child: Text(
-                  //             date.day.toString(),
-                  //             style: TextStyle(
-                  //               fontSize: 12,
-                  //               color: Colors.black,
-                  //             ),
-                  //           ),
-                  //         ),
-                  //       );
-                  //     }
-                  //   }
-                  // },
-                  // // // // markersBuilder: (context, date, events, holidays) {
-                  // // // //   final children = <Widget>[];
-                  // // // //   if (events.isNotEmpty) {
-                  // // // //     children.add(
-                  // // // //       Positioned(
-                  // // // //         right: 1,
-                  // // // //         bottom: 1,
-                  // // // //         child: _buildEventsMarker(date, events),
-                  // // // //       ),
-                  // // // //     );
-                  // // // //   }
-                  // // // //   return children;
-                  // // // // },
-                  ),
+                //day names
+                dowWeekdayBuilder: (context, day) {
+                  return Container(child: Center(child: Text(day)));
+                },
+
+                dayBuilder: (context, date, events) {
+                  final anyPeriodDay = periodDays.any((DateTime day) =>
+                      day.day == date.day && day.month == date.month);
+                  if (date == _selectedDay) {
+                    return Container(
+                      margin: const EdgeInsets.all(4.0),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.pink[300],
+                      ),
+                      child: Center(
+                        child: Text(
+                          date.day.toString(),
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    );
+                  } else if (anyPeriodDay) {
+                    if (_controller.isToday(date)) {
+                      return Container(
+                        margin: const EdgeInsets.all(4.0),
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.indigo[400],
+                          // border:
+                          //     Border.all(color: Colors.indigo[400], width: 3),
+                        ),
+                        child: Center(
+                          child: Text(
+                            date.day.toString(),
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.pink[400],
+                            ),
+                          ),
+                        ),
+                      );
+                    } else {
+                      return Container(
+                        color: Colors.grey[50],
+                        width: 50,
+                        height: 50,
+                        child: Center(
+                          child: Text(
+                            date.day.toString(),
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.pink[400],
+                            ),
+                          ),
+                        ),
+                      );
+                    }
+                  } else {
+                    if (_controller.isToday(date)) {
+                      return Container(
+                        margin: const EdgeInsets.all(4.0),
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: Colors.indigo[400],
+                          shape: BoxShape.circle,
+                          // border:
+                          //     Border.all(color: Colors.indigo[400], width: 3),
+                        ),
+                        child: Center(
+                          child: Text(
+                            date.day.toString(),
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      );
+                    } else if (_controller.focusedDay.month != date.month) {
+                      return Container(
+                        color: Colors.grey[50],
+                        width: 50,
+                        height: 50,
+                        child: Center(
+                          child: Text(
+                            date.day.toString(),
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.grey[400],
+                            ),
+                          ),
+                        ),
+                      );
+                    } else {
+                      return Container(
+                        color: Colors.grey[50],
+                        width: 50,
+                        height: 50,
+                        child: Center(
+                          child: Text(
+                            date.day.toString(),
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.indigo[400],
+                            ),
+                          ),
+                        ),
+                      );
+                    }
+                  }
+                },
+                // // // markersBuilder: (context, date, events, holidays) {
+                // // //   final children = <Widget>[];
+                // // //   if (events.isNotEmpty) {
+                // // //     children.add(
+                // // //       Positioned(
+                // // //         right: 1,
+                // // //         bottom: 1,
+                // // //         child: _buildEventsMarker(date, events),
+                // // //       ),
+                // // //     );
+                // // //   }
+                // // //   return children;
+                // // // },
+              ),
               calendarController: _controller,
             ),
 
