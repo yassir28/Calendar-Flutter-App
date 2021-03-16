@@ -6,22 +6,39 @@ import 'package:menstruating/pages/components/calendrier.dart';
 import 'package:menstruating/services/database.dart';
 import 'package:provider/provider.dart';
 
-class HomeScreen extends StatelessWidget {
-  Future<int> getLength(DocumentSnapshot docSnapshot) async {
-    return docSnapshot.data()['period length'];
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int length;
+
+  int cycle;
+
+  DateTime date;
+
+  Future setLength(DocumentSnapshot docSnapshot) async {
+    setState(() {
+      length = docSnapshot.data()['period length'];
+    });
   }
 
-  Future<int> getCycle(DocumentSnapshot docSnapshot) async {
-    return docSnapshot.data()['period cycle'];
+  Future setCycle(DocumentSnapshot docSnapshot) async {
+    setState(() {
+      cycle = docSnapshot.data()['period cycle'];
+    });
   }
 
-  Future<DateTime> getDate(DocumentSnapshot docSnapshot) async {
+  Future setDate(DocumentSnapshot docSnapshot) async {
     Timestamp time = docSnapshot.data()['period date'];
-    DateTime date =
-        new DateTime.fromMicrosecondsSinceEpoch(time.microsecondsSinceEpoch);
-    print(date);
-    return date;
+    setState(() {
+      date =
+          new DateTime.fromMicrosecondsSinceEpoch(time.microsecondsSinceEpoch);
+    });
   }
+
+  void _onDaySelected(User user, DateTime date) async {}
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +50,9 @@ class HomeScreen extends StatelessWidget {
     return StreamBuilder<DocumentSnapshot>(
         stream: DataBaseService(uid: user.uid).queen,
         builder: (context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+          setCycle(snapshot.data);
+          setDate(snapshot.data);
+          setLength(snapshot.data);
           return Scaffold(
             appBar: AppBar(
               backgroundColor: Colors.pink[300],
@@ -47,9 +67,10 @@ class HomeScreen extends StatelessWidget {
                 Container(
                   height: height * 0.5,
                   child: Calendar(
-                    periodLength: getLength(snapshot.data),
-                    periodCycle: getCycle(snapshot.data),
-                    periodDate: getDate(snapshot.data),
+                    periodLength: length,
+                    periodCycle: cycle,
+                    periodDate: date,
+                    onDaySelected: _onDaySelected,
                   ),
                 ),
                 Divider(),

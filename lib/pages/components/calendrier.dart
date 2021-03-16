@@ -5,6 +5,7 @@ import 'package:table_calendar/table_calendar.dart';
 
 class Calendar extends StatefulWidget {
   final Function onDaySelected;
+
   final periodLength;
   final periodCycle;
   final periodDate;
@@ -24,21 +25,23 @@ class _CalendarState extends State<Calendar> {
   CalendarController _controller;
   DateTime _selectedDay;
 
-  int periodLength = 3;
-  int periodCycle = 28;
-  DateTime periodDate = DateTime.now().add(Duration(hours: 60));
-
   List<DateTime> periodDays = [];
 
   periodCall() {
-    if (periodDate == null) {
-      return;
+    if (widget.periodDate == null) {
+      setState(() {
+        periodDays = [];
+      });
     } else {
       setState(() {
         periodDays = List.generate(
-            periodLength,
-            (i) => DateTime(
-                periodDate.year, periodDate.month, periodDate.day + (i)));
+          widget.periodLength,
+          (i) => DateTime(
+            widget.periodDate.year,
+            widget.periodDate.month,
+            widget.periodDate.day + (i),
+          ),
+        );
       });
     }
     print(periodDays);
