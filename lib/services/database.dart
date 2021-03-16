@@ -52,15 +52,7 @@ class DataBaseService {
         .catchError((error) => print(error));
   }
 
-  listFromDocumentSnapshot(DocumentSnapshot doc) {
-    return doc.data();
-  }
-
   Stream get queen {
     return users.doc(uid).snapshots();
-  }
-
-  Future getData() async {
-    return await users.doc(uid).get();
   }
 }
