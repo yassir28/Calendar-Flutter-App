@@ -57,7 +57,11 @@ class HomeScreen extends StatelessWidget {
               children: [
                 Container(
                   height: height * 0.5,
-                  child: Calendar(),
+                  child: Calendar(
+                    periodLength: getLength(user),
+                    periodCycle: getCycle(user),
+                    periodDate: getDate(user),
+                  ),
                 ),
                 Divider(),
                 Padding(

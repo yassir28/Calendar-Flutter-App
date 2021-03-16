@@ -5,8 +5,17 @@ import 'package:table_calendar/table_calendar.dart';
 
 class Calendar extends StatefulWidget {
   final Function onDaySelected;
+  final periodLength;
+  final periodCycle;
+  final periodDate;
 
-  const Calendar({Key key, this.onDaySelected}) : super(key: key);
+  const Calendar(
+      {Key key,
+      this.onDaySelected,
+      this.periodCycle,
+      this.periodDate,
+      this.periodLength})
+      : super(key: key);
   @override
   _CalendarState createState() => _CalendarState();
 }
