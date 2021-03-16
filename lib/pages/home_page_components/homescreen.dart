@@ -7,21 +7,16 @@ import 'package:menstruating/services/database.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
-  Future<int> getLength(User user) async {
-    DocumentSnapshot result = await DataBaseService(uid: user.uid).getData();
-    print(result.data()['period length']);
-    return result.data()['period length'];
+  Future<int> getLength(DocumentSnapshot docSnapshot) async {
+    return docSnapshot.data()['period length'];
   }
 
-  Future<int> getCycle(User user) async {
-    DocumentSnapshot result = await DataBaseService(uid: user.uid).getData();
-    print(result.data()['period cycle']);
-    return result.data()['period cycle'];
+  Future<int> getCycle(DocumentSnapshot docSnapshot) async {
+    return docSnapshot.data()['period cycle'];
   }
 
-  Future<DateTime> getDate(User user) async {
-    DocumentSnapshot result = await DataBaseService(uid: user.uid).getData();
-    Timestamp time = result.data()['period date'];
+  Future<DateTime> getDate(DocumentSnapshot docSnapshot) async {
+    Timestamp time = docSnapshot.data()['period date'];
     DateTime date =
         new DateTime.fromMicrosecondsSinceEpoch(time.microsecondsSinceEpoch);
     print(date);
@@ -35,15 +30,9 @@ class HomeScreen extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
-    getLength(user);
-
-    getCycle(user);
-
-    getDate(user);
-
     return StreamBuilder<DocumentSnapshot>(
         stream: DataBaseService(uid: user.uid).queen,
-        builder: (context, snapshot) {
+        builder: (context, AsyncSnapshot<DocumentSnapshot> snapshot) {
           return Scaffold(
             appBar: AppBar(
               backgroundColor: Colors.pink[300],
@@ -58,9 +47,9 @@ class HomeScreen extends StatelessWidget {
                 Container(
                   height: height * 0.5,
                   child: Calendar(
-                    periodLength: getLength(user),
-                    periodCycle: getCycle(user),
-                    periodDate: getDate(user),
+                    periodLength: getLength(snapshot.data),
+                    periodCycle: getCycle(snapshot.data),
+                    periodDate: getDate(snapshot.data),
                   ),
                 ),
                 Divider(),
