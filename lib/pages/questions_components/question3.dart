@@ -78,7 +78,6 @@ class _Question3State extends State<Question3>
   }
 
   void _onDaySelected(User user, DateTime date) async {
-    print(date.toIso8601String());
     await DataBaseService(uid: user.uid).updatePeriodDate(periodDate: date);
   }
 

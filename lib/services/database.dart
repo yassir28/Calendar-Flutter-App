@@ -19,7 +19,7 @@ class DataBaseService {
           'period date': periodDate,
         })
         .then((value) => print('User initiated Suxsuxfully'))
-        .catchError((error) => print(error));
+        .catchError((error) => print('the error is $error'));
   }
 
   Future updatePeriodLength({int periodLength}) async {
@@ -29,7 +29,7 @@ class DataBaseService {
           'period length': periodLength,
         }, SetOptions(merge: true))
         .then((value) => print('User Updated Suxsuxfully'))
-        .catchError((error) => print(error));
+        .catchError((error) => print('the error is $error'));
   }
 
   Future updatePeriodCycle({int periodCycle}) async {
@@ -39,7 +39,7 @@ class DataBaseService {
           'period cycle': periodCycle,
         }, SetOptions(merge: true))
         .then((value) => print('User Updated Suxsuxfully'))
-        .catchError((error) => print(error));
+        .catchError((error) => print('the error is $error'));
   }
 
   Future updatePeriodDate({DateTime periodDate}) async {
@@ -49,7 +49,7 @@ class DataBaseService {
           'period date': periodDate,
         }, SetOptions(merge: true))
         .then((value) => print('User Updated Suxsuxfully'))
-        .catchError((error) => print(error));
+        .catchError((error) => print('the error is $error'));
   }
 
   Stream get queen {

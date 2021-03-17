@@ -44,7 +44,7 @@ class _CalendarState extends State<Calendar> {
         );
       });
     }
-    print(periodDays);
+    print('period days are $periodDays');
   }
 
   @override
