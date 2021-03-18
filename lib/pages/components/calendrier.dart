@@ -28,13 +28,13 @@ class _CalendarState extends State<Calendar> {
   List<DateTime> periodDays = [];
 
   periodCall() {
-    final periodDate = new DateTime.fromMicrosecondsSinceEpoch(
-        widget.periodTS.microsecondsSinceEpoch);
-    if (periodDate == null) {
+    if (widget.periodTS == null) {
       setState(() {
         periodDays = [];
       });
     } else {
+      final periodDate = new DateTime.fromMicrosecondsSinceEpoch(
+          widget.periodTS.microsecondsSinceEpoch);
       setState(() {
         periodDays = List.generate(
           widget.periodLength,
@@ -61,10 +61,11 @@ class _CalendarState extends State<Calendar> {
   Widget build(BuildContext context) {
     final user = Provider.of<User>(context);
 
-    return Scaffold(
-      body: SingleChildScrollView(
+    return Container(
+      child: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             TableCalendar(
               headerStyle: HeaderStyle(

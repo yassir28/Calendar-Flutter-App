@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:menstruating/constants.dart';
 import 'package:menstruating/models/user.dart';
 import 'package:menstruating/pages/components/boxdialog.dart';
-import 'package:menstruating/pages/components/calendrier.dart';
+import 'package:menstruating/pages/questions_components/calendar.dart';
 import 'package:menstruating/pages/components/colordot.dart';
 import 'package:menstruating/pages/home.dart';
 import 'package:menstruating/services/database.dart';
@@ -82,48 +82,50 @@ class _Question3State extends State<Question3>
   buildBodyScreen({int selectedIndex, double height}) {
     switch (selectedIndex) {
       case 0:
-        return Column(
-          children: [
-            Container(
-              height: height * 0.1,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(left: 18),
-                    child: Text(
-                      "When did your last period start?",
-                      style: TextStyle(fontSize: 13),
-                    ),
-                  ),
-                  Container(
-                    child: BoxwDialog(
-                      listBody: ListBody(
-                        children: [
-                          Text(
-                            "Scroll to change the month, and tap to select the start date of your last period.",
-                            textAlign: TextAlign.justify,
-                          ),
-                          Divider(),
-                          Text(
-                            "The date you selected will be used to predict your next period lenght.",
-                            textAlign: TextAlign.justify,
-                          ),
-                        ],
+        return SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                height: height * 0.075,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(left: 18),
+                      child: Text(
+                        "When did your last period start?",
+                        style: TextStyle(fontSize: 13),
                       ),
                     ),
-                  ),
-                ],
+                    Container(
+                      child: BoxwDialog(
+                        listBody: ListBody(
+                          children: [
+                            Text(
+                              "Scroll to change the month, and tap to select the start date of your last period.",
+                              textAlign: TextAlign.justify,
+                            ),
+                            Divider(),
+                            Text(
+                              "The date you selected will be used to predict your next period lenght.",
+                              textAlign: TextAlign.justify,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Container(
-              margin: EdgeInsets.all(KDefaultPaddin),
-              height: height * 0.47,
-              child: Calendar(
-                onDaySelected: _onDaySelected,
+              Container(
+                margin: EdgeInsets.all(KDefaultPaddin),
+                height: height * 0.495,
+                child: Calendar(
+                  onDaySelected: _onDaySelected,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         );
         break;
       case 1:
