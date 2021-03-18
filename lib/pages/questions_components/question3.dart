@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:menstruating/constants.dart';
 import 'package:menstruating/models/user.dart';
@@ -7,7 +6,6 @@ import 'package:menstruating/pages/components/calendrier.dart';
 import 'package:menstruating/pages/components/colordot.dart';
 import 'package:menstruating/pages/home.dart';
 import 'package:menstruating/services/database.dart';
-import 'package:provider/provider.dart';
 
 class Question3 extends StatefulWidget {
   @override

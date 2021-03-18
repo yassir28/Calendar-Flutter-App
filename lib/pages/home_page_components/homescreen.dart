@@ -12,32 +12,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int length;
-
-  int cycle;
-
-  DateTime date;
-
-  Future setLength(DocumentSnapshot docSnapshot) async {
-    setState(() {
-      length = docSnapshot.data()['period length'];
-    });
-  }
-
-  Future setCycle(DocumentSnapshot docSnapshot) async {
-    setState(() {
-      cycle = docSnapshot.data()['period cycle'];
-    });
-  }
-
-  Future setDate(DocumentSnapshot docSnapshot) async {
-    Timestamp time = docSnapshot.data()['period date'];
-    setState(() {
-      date =
-          new DateTime.fromMicrosecondsSinceEpoch(time.microsecondsSinceEpoch);
-    });
-  }
-
   void _onDaySelected(User user, DateTime date) async {}
 
   @override
@@ -50,9 +24,6 @@ class _HomeScreenState extends State<HomeScreen> {
     return StreamBuilder<DocumentSnapshot>(
         stream: DataBaseService(uid: user.uid).queen,
         builder: (context, AsyncSnapshot<DocumentSnapshot> snapshot) {
-          setCycle(snapshot.data);
-          setDate(snapshot.data);
-          setLength(snapshot.data);
           return Scaffold(
             appBar: AppBar(
               backgroundColor: Colors.pink[300],
@@ -67,9 +38,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 Container(
                   height: height * 0.5,
                   child: Calendar(
-                    periodLength: length,
-                    periodCycle: cycle,
-                    periodDate: date,
+                    periodLength: snapshot.data.data()['period length'],
+                    periodCycle: snapshot.data.data()['period cycle'],
+                    periodTS: snapshot.data.data()['period date'],
                     onDaySelected: _onDaySelected,
                   ),
                 ),

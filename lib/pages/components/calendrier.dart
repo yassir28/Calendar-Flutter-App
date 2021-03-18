@@ -8,13 +8,13 @@ class Calendar extends StatefulWidget {
 
   final periodLength;
   final periodCycle;
-  final periodDate;
+  final periodTS;
 
   const Calendar(
       {Key key,
       this.onDaySelected,
       this.periodCycle,
-      this.periodDate,
+      this.periodTS,
       this.periodLength})
       : super(key: key);
   @override
@@ -28,7 +28,9 @@ class _CalendarState extends State<Calendar> {
   List<DateTime> periodDays = [];
 
   periodCall() {
-    if (widget.periodDate == null) {
+    final periodDate = new DateTime.fromMicrosecondsSinceEpoch(
+        widget.periodTS.microsecondsSinceEpoch);
+    if (periodDate == null) {
       setState(() {
         periodDays = [];
       });
@@ -37,9 +39,9 @@ class _CalendarState extends State<Calendar> {
         periodDays = List.generate(
           widget.periodLength,
           (i) => DateTime(
-            widget.periodDate.year,
-            widget.periodDate.month,
-            widget.periodDate.day + (i),
+            periodDate.year,
+            periodDate.month,
+            periodDate.day + (i),
           ),
         );
       });
