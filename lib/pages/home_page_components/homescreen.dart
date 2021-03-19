@@ -33,80 +33,82 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: TextStyle(letterSpacing: 2),
               ),
             ),
-            body: Column(
-              children: [
-                Container(
-                  height: height * 0.5,
-                  child: Calendar(
-                    periodLength: snapshot.data.data()['period length'],
-                    periodCycle: snapshot.data.data()['period cycle'],
-                    periodTS: snapshot.data.data()['period date'],
-                    onDaySelected: _onDaySelected,
+            body: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Container(
+                    height: height * 0.55,
+                    child: Calendar(
+                      periodLength: snapshot.data.data()['period length'],
+                      periodCycle: snapshot.data.data()['period cycle'],
+                      periodTS: snapshot.data.data()['period date'],
+                      onDaySelected: _onDaySelected,
+                    ),
                   ),
-                ),
-                Divider(),
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: KDefaultPaddin),
-                  child: Row(
-                    children: [
-                      Container(
-                        width: width * 0.05,
-                        child: Icon(
-                          Icons.circle,
-                          color: Colors.pink[300],
-                          size: 10,
-                        ),
-                      ),
-                      Container(
-                        width: width * 0.13,
-                        child: Text("Period"),
-                      ),
-                      Container(
+                  Divider(),
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: KDefaultPaddin),
+                    child: Row(
+                      children: [
+                        Container(
                           width: width * 0.05,
-                          child: Icon(Icons.radio_button_off, size: 10)),
-                      Container(
-                        width: width * 0.2,
-                        child: Text("Prediction"),
-                      ),
-                      Container(
-                        height: 10,
-                        width: width * 0.05,
-                        margin: EdgeInsets.only(left: 10),
-                        decoration: BoxDecoration(
-                          color: Colors.green,
-                          shape: BoxShape.circle,
+                          child: Icon(
+                            Icons.circle,
+                            color: Colors.pink[300],
+                            size: 10,
+                          ),
                         ),
-                      ),
-                      Container(
-                        width: width * 0.13,
-                        child: Text("Fertile"),
-                      ),
-                      Container(
-                        width: width * 0.05,
-                        child: Icon(
-                          Icons.favorite,
-                          color: Colors.teal[800],
-                          size: 15,
+                        Container(
+                          width: width * 0.13,
+                          child: Text("Period"),
                         ),
-                      ),
-                      Container(
-                        width: width * 0.2,
-                        child: Text("Ovulation"),
-                      ),
-                    ],
+                        Container(
+                            width: width * 0.05,
+                            child: Icon(Icons.radio_button_off, size: 10)),
+                        Container(
+                          width: width * 0.2,
+                          child: Text("Prediction"),
+                        ),
+                        Container(
+                          height: 10,
+                          width: width * 0.05,
+                          margin: EdgeInsets.only(left: 10),
+                          decoration: BoxDecoration(
+                            color: Colors.green,
+                            shape: BoxShape.circle,
+                          ),
+                        ),
+                        Container(
+                          width: width * 0.13,
+                          child: Text("Fertile"),
+                        ),
+                        Container(
+                          width: width * 0.05,
+                          child: Icon(
+                            Icons.favorite,
+                            color: Colors.teal[800],
+                            size: 15,
+                          ),
+                        ),
+                        Container(
+                          width: width * 0.2,
+                          child: Text("Ovulation"),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                Divider(),
-                Padding(
-                  padding: const EdgeInsets.all(KDefaultPaddin),
-                  child: Row(
-                    children: [
-                      Text("we need to update the period interactivally"),
-                    ],
-                  ),
-                )
-              ],
+                  Divider(),
+                  Padding(
+                    padding: const EdgeInsets.all(KDefaultPaddin),
+                    child: Row(
+                      children: [
+                        Text("we need to update the period interactivally"),
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           );
         });

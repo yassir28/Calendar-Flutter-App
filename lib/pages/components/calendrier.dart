@@ -26,6 +26,7 @@ class _CalendarState extends State<Calendar> {
   DateTime _selectedDay;
 
   List<DateTime> periodDays = [];
+  DateTime ovulationDay;
 
   periodCall() {
     if (widget.periodTS == null) {
@@ -33,8 +34,9 @@ class _CalendarState extends State<Calendar> {
         periodDays = [];
       });
     } else {
-      final periodDate = new DateTime.fromMicrosecondsSinceEpoch(
+      DateTime periodDate = new DateTime.fromMicrosecondsSinceEpoch(
           widget.periodTS.microsecondsSinceEpoch);
+
       setState(() {
         periodDays = List.generate(
           widget.periodLength,
@@ -44,6 +46,8 @@ class _CalendarState extends State<Calendar> {
             periodDate.day + (i),
           ),
         );
+        ovulationDay =
+            periodDate.add(new Duration(days: widget.periodCycle - 14));
       });
     }
     print('period days are $periodDays');
@@ -119,15 +123,14 @@ class _CalendarState extends State<Calendar> {
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           color: Colors.indigo[400],
-                          // border:
-                          //     Border.all(color: Colors.indigo[400], width: 3),
+                          border: Border.all(color: Colors.pink[300], width: 6),
                         ),
                         child: Center(
                           child: Text(
                             date.day.toString(),
                             style: TextStyle(
                               fontSize: 18,
-                              color: Colors.pink[400],
+                              color: Colors.white,
                             ),
                           ),
                         ),
@@ -219,8 +222,6 @@ class _CalendarState extends State<Calendar> {
               calendarController: _controller,
             ),
 
-            ///// le stooon de mapping events. of whats happening period ovulation etc
-            ///
             // ..._selectedEvents.map(
             //   (event) => Padding(
             //     padding: const EdgeInsets.all(8.0),
