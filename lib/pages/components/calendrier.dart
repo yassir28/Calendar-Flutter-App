@@ -28,6 +28,7 @@ class _CalendarState extends State<Calendar> {
   List<DateTime> periodDays = [];
   DateTime ovulationDay;
 
+  /// regler period daaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaays
   periodCall() {
     if (widget.periodTS == null) {
       setState(() {
@@ -51,6 +52,8 @@ class _CalendarState extends State<Calendar> {
       });
     }
     print('period days are $periodDays');
+    print('ovulation day is $ovulationDay');
+    print(widget.periodCycle - 14);
   }
 
   @override
@@ -97,6 +100,7 @@ class _CalendarState extends State<Calendar> {
                 dayBuilder: (context, date, events) {
                   final anyPeriodDay = periodDays.any((DateTime day) =>
                       day.day == date.day && day.month == date.month);
+
                   if (date == _selectedDay) {
                     return Container(
                       margin: const EdgeInsets.all(4.0),
@@ -172,6 +176,33 @@ class _CalendarState extends State<Calendar> {
                           ),
                         ),
                       );
+                    } else if (date == ovulationDay) {
+                      return Stack(children: [
+                        Container(
+                          color: Colors.grey[50],
+                          width: 50,
+                          height: 50,
+                          child: Center(
+                            child: Text(
+                              date.day.toString(),
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.pink[400],
+                              ),
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          right: 1,
+                          bottom: 1,
+                          height: 10,
+                          width: 10,
+                          child: Icon(
+                            Icons.favorite,
+                            color: Colors.green,
+                          ),
+                        ),
+                      ]);
                     } else if (_controller.focusedDay.month != date.month) {
                       return Container(
                         color: Colors.grey[50],
@@ -205,19 +236,6 @@ class _CalendarState extends State<Calendar> {
                     }
                   }
                 },
-                // // // markersBuilder: (context, date, events, holidays) {
-                // // //   final children = <Widget>[];
-                // // //   if (events.isNotEmpty) {
-                // // //     children.add(
-                // // //       Positioned(
-                // // //         right: 1,
-                // // //         bottom: 1,
-                // // //         child: _buildEventsMarker(date, events),
-                // // //       ),
-                // // //     );
-                // // //   }
-                // // //   return children;
-                // // // },
               ),
               calendarController: _controller,
             ),
