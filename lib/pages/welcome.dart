@@ -21,7 +21,7 @@ class Welcome extends StatelessWidget {
           children: <Widget>[
             Positioned.fill(
               child: Image.asset(
-                "assets/images/pale_pink.jpg",
+                "assets/pale_pink.jpg",
                 fit: BoxFit.fitWidth,
                 alignment: Alignment.bottomCenter,
               ),
@@ -43,46 +43,83 @@ class Welcome extends StatelessWidget {
                     ),
                   ),
                 ),
-                buildFlatButton(
-                  color: Colors.pink[300],
+                Container(
+                  margin: EdgeInsets.symmetric(
+                      horizontal: KDefaultPaddin, vertical: KDefaultPaddin / 2),
                   width: width * 0.8,
                   height: height * 0.075,
-                  text: Text("New User", style: TextStyle(color: Colors.white)),
-                  press: () async {
-                    dynamic result = await _auth.singInAnon();
-                    if (result == null) {
-                      print('there is an error');
-                    } else {
-                      print(result.uid);
-                    }
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                        (Set<MaterialState> states) {
+                          if (states.contains(MaterialState.pressed))
+                            return Colors.pink[400];
+                          return Colors.pink[300];
+                        },
+                      ),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                          side: BorderSide(color: Colors.pink[300]),
+                        ),
+                      ),
+                    ),
+                    onPressed: () async {
+                      dynamic result = await _auth.singInAnon();
+                      if (result == null) {
+                        print('there is an error');
+                      } else {
+                        print(result.uid);
+                      }
 
-                    // we initiate it with current data
-                    await DataBaseService(uid: result.uid).initiatePeriodData(
-                        periodDate: DateTime.now(),
-                        periodCycle: 28,
-                        periodLength: 5);
+                      // we initiate it with current data
+                      await DataBaseService(uid: result.uid).initiatePeriodData(
+                          periodDate: DateTime.now(),
+                          periodCycle: 28,
+                          periodLength: 5);
 
-                    //must be replaced cos we dont want to re-initiate bd
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) => Questions()),
-                    );
-                  },
-                ),
-                buildFlatButton(
-                  color: Colors.transparent,
-                  width: width * 0.8,
-                  height: height * 0.075,
-                  text: Text(
-                    "Restore Data",
-                    style: TextStyle(color: Colors.pink[300]),
+                      //must be replaced cos we dont want to re-initiate bd
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => Questions()),
+                      );
+                    },
+                    child:
+                        Text("New User", style: TextStyle(color: Colors.white)),
                   ),
-                  press: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => RestoreData()),
-                    );
-                  },
+                ),
+                Container(
+                  margin: EdgeInsets.symmetric(
+                      horizontal: KDefaultPaddin, vertical: KDefaultPaddin / 2),
+                  width: width * 0.8,
+                  height: height * 0.075,
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                        (Set<MaterialState> states) {
+                          if (states.contains(MaterialState.pressed))
+                            return Colors.pink[100];
+                          return Color(0xfff4e6f0);
+                        },
+                      ),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                          side: BorderSide(color: Colors.pink[300]),
+                        ),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => RestoreData()),
+                      );
+                    },
+                    child: Text(
+                      "Restore Data",
+                      style: TextStyle(color: Colors.pink[300]),
+                    ),
+                  ),
                 ),
                 RichText(
                   textAlign: TextAlign.center,
@@ -111,24 +148,6 @@ class Welcome extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  Container buildFlatButton(
-      {double width, Function press, Text text, Color color, double height}) {
-    return Container(
-      margin: EdgeInsets.symmetric(
-          horizontal: KDefaultPaddin, vertical: KDefaultPaddin / 2),
-      width: width,
-      height: height,
-      child: FlatButton(
-        color: color,
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(13),
-            side: BorderSide(color: color)),
-        onPressed: press,
-        child: text,
       ),
     );
   }
