@@ -52,7 +52,7 @@ class _Question2State extends State<Question2>
                       margin: EdgeInsets.only(left: 18),
                       child: Text(
                         "On average, how long is your period cycle?",
-                        style: TextStyle(fontSize: 13),
+                        style: TextStyle(fontSize: 12),
                       ),
                     ),
                     Container(
