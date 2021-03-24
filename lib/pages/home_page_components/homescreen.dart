@@ -37,10 +37,10 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 children: [
                   Container(
-                    height: height * 0.55,
+                    height: height * 0.6,
                     child: Calendar(
-                      periodLength: snapshot.data.data()['period length'] - 2,
-                      periodCycle: snapshot.data.data()['period cycle'] - 15,
+                      periodLength: snapshot.data.data()['period length'],
+                      periodCycle: snapshot.data.data()['period cycle'],
                       periodTS: snapshot.data.data()['period date'],
                       onDaySelected: _onDaySelected,
                     ),

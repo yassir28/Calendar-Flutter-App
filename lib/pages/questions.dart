@@ -102,7 +102,7 @@ class _QuestionsState extends State<Questions> {
                 ),
               ),
               Container(
-                width: width * 0.22,
+                width: width * 0.18,
                 height: 1,
                 color: Colors.pink[300],
               ),
@@ -118,7 +118,7 @@ class _QuestionsState extends State<Questions> {
                 ),
               ),
               Container(
-                width: width * 0.22,
+                width: width * 0.18,
                 height: 1,
                 color: Colors.pink[300],
               ),
@@ -153,7 +153,7 @@ class _QuestionsState extends State<Questions> {
                 ),
               ),
               Container(
-                width: width * 0.22,
+                width: width * 0.18,
                 height: 1,
                 color: Colors.pink[300],
               ),
@@ -170,7 +170,7 @@ class _QuestionsState extends State<Questions> {
                 ),
               ),
               Container(
-                width: width * 0.22,
+                width: width * 0.18,
                 height: 1,
                 color: Colors.pink[300],
               ),
@@ -205,7 +205,7 @@ class _QuestionsState extends State<Questions> {
                 ),
               ),
               Container(
-                width: width * 0.22,
+                width: width * 0.18,
                 height: 1,
                 color: Colors.pink[300],
               ),
@@ -222,7 +222,7 @@ class _QuestionsState extends State<Questions> {
                 ),
               ),
               Container(
-                width: width * 0.22,
+                width: width * 0.18,
                 height: 1,
                 color: Colors.pink[300],
               ),
@@ -241,153 +241,6 @@ class _QuestionsState extends State<Questions> {
             ],
           ),
         );
-      // case 1:
-      //   return Container(
-      //     child: Row(
-      //       children: [
-      //         Container(
-      //           height: 10,
-      //           width: width * 0.2,
-      //           decoration: BoxDecoration(
-      //             shape: BoxShape.rectangle,
-      //             border: Border.all(
-      //               color: Colors.pink[300],
-      //               width: 1,
-      //             ),
-      //           ),
-      //           child: DecoratedBox(
-      //             decoration: BoxDecoration(
-      //               color: Colors.pink[300],
-      //             ),
-      //           ),
-      //         ),
-      //         Container(
-      //           height: 10,
-      //           width: width * 0.2,
-      //           decoration: BoxDecoration(
-      //             shape: BoxShape.rectangle,
-      //             border: Border(
-      //               top: BorderSide(
-      //                 color: Colors.pink[300],
-      //                 width: 1,
-      //               ),
-      //               right: BorderSide(
-      //                 color: Colors.pink[300],
-      //                 width: 1,
-      //               ),
-      //               bottom: BorderSide(
-      //                 color: Colors.pink[300],
-      //                 width: 1,
-      //               ),
-      //               left: BorderSide(
-      //                 color: Colors.transparent,
-      //                 width: 1,
-      //               ),
-      //             ),
-      //           ),
-      //           child: DecoratedBox(
-      //             decoration: BoxDecoration(
-      //               color: Colors.pink[300],
-      //             ),
-      //           ),
-      //         ),
-      //         Container(
-      //           height: 10,
-      //           width: width * 0.2,
-      //           decoration: BoxDecoration(
-      //             shape: BoxShape.rectangle,
-      //             border: Border.all(
-      //               color: Colors.pink[300],
-      //               width: 1,
-      //             ),
-      //           ),
-      //         ),
-      //       ],
-      //     ),
-      //   );
-      // case 2:
-      //   return Container(
-      //     child: Row(
-      //       children: [
-      //         Container(
-      //           height: 10,
-      //           width: width * 0.2,
-      //           decoration: BoxDecoration(
-      //             shape: BoxShape.rectangle,
-      //             border: Border.all(
-      //               color: Colors.pink[300],
-      //               width: 1,
-      //             ),
-      //           ),
-      //           child: DecoratedBox(
-      //             decoration: BoxDecoration(
-      //               color: Colors.pink[300],
-      //             ),
-      //           ),
-      //         ),
-      //         Container(
-      //           height: 10,
-      //           width: width * 0.2,
-      //           decoration: BoxDecoration(
-      //             shape: BoxShape.rectangle,
-      //             border: Border(
-      //               top: BorderSide(
-      //                 color: Colors.pink[300],
-      //                 width: 1,
-      //               ),
-      //               right: BorderSide(
-      //                 color: Colors.pink[300],
-      //                 width: 1,
-      //               ),
-      //               bottom: BorderSide(
-      //                 color: Colors.pink[300],
-      //                 width: 1,
-      //               ),
-      //               left: BorderSide(
-      //                 color: Colors.transparent,
-      //                 width: 1,
-      //               ),
-      //             ),
-      //           ),
-      //           child: DecoratedBox(
-      //             decoration: BoxDecoration(
-      //               color: Colors.pink[300],
-      //             ),
-      //           ),
-      //         ),
-      //         Container(
-      //           height: 10,
-      //           width: width * 0.2,
-      //           decoration: BoxDecoration(
-      //             shape: BoxShape.rectangle,
-      //             border: Border(
-      //               top: BorderSide(
-      //                 color: Colors.pink[300],
-      //                 width: 1,
-      //               ),
-      //               right: BorderSide(
-      //                 color: Colors.pink[300],
-      //                 width: 1,
-      //               ),
-      //               bottom: BorderSide(
-      //                 color: Colors.pink[300],
-      //                 width: 1,
-      //               ),
-      //               left: BorderSide(
-      //                 color: Colors.transparent,
-      //                 width: 1,
-      //               ),
-      //             ),
-      //           ),
-      //           child: DecoratedBox(
-      //             decoration: BoxDecoration(
-      //               color: Colors.pink[300],
-      //             ),
-      //           ),
-      //         ),
-      //       ],
-      //     ),
-      //   );
     }
   }
 }

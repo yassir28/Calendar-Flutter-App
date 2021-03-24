@@ -75,8 +75,8 @@ class Welcome extends StatelessWidget {
                       // we initiate it with current data
                       await DataBaseService(uid: result.uid).initiatePeriodData(
                           periodDate: DateTime.now(),
-                          periodCycle: 28,
-                          periodLength: 5);
+                          periodCycle: 15,
+                          periodLength: 2);
 
                       //must be replaced cos we dont want to re-initiate bd
                       Navigator.pushReplacement(
