@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart' as firebase;
 import 'package:menstruating/models/user.dart' as models;
 
 class AuthService {
-  final firebase.FirebaseAuth _auth = firebase.FirebaseAuth.instance; //afain
+  static firebase.FirebaseAuth _auth = firebase.FirebaseAuth.instance; //afain
 
   // create a user obj based on FirebaseUser
   models.User _userFromFirebaseUser(firebase.User user) {
