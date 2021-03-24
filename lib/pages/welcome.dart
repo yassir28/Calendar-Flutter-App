@@ -4,6 +4,8 @@ import 'package:menstruating/pages/questions.dart';
 import 'package:menstruating/pages/restoredata.dart';
 import 'package:menstruating/services/auth.dart';
 import 'package:menstruating/services/database.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:menstruating/models/user.dart' as models;
 
 class Welcome extends StatelessWidget {
   @override

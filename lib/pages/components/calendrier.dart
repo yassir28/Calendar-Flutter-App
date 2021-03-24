@@ -28,7 +28,6 @@ class _CalendarState extends State<Calendar> {
   List<DateTime> periodDays = [];
   DateTime ovulationDay;
 
-  /// regler period daaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaays
   periodCall() {
     if (widget.periodTS == null) {
       setState(() {

@@ -20,11 +20,13 @@ class AuthService {
   Future singInAnon() async {
     try {
       firebase.UserCredential credential = await _auth.signInAnonymously();
+
       firebase.User user = credential.user;
+      print('great success');
 
       return _userFromFirebaseUser(user);
     } catch (e) {
-      print('The error is: ${e.toString()}');
+      print('The error is: /${e.toString()}/');
       return null;
     }
   }
