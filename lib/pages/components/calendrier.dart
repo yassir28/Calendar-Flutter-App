@@ -25,19 +25,19 @@ class _CalendarState extends State<Calendar> {
   CalendarController _controller;
   DateTime _selectedDay;
 
-  List<DateTime> periodDays = [];
+  List<DateTime> periodDays;
   DateTime ovulationDay;
+  DateTime periodDate;
 
   periodCall() {
     if (widget.periodTS == null) {
       setState(() {
-        periodDays = [];
+        periodDays = null;
       });
     } else {
-      DateTime periodDate = new DateTime.fromMicrosecondsSinceEpoch(
-          widget.periodTS.microsecondsSinceEpoch);
-
       setState(() {
+        DateTime periodDate = new DateTime.fromMicrosecondsSinceEpoch(
+            widget.periodTS.microsecondsSinceEpoch);
         periodDays = List.generate(
           widget.periodLength,
           (i) => DateTime(
@@ -50,6 +50,7 @@ class _CalendarState extends State<Calendar> {
             periodDate.add(new Duration(days: widget.periodCycle - 14));
       });
     }
+
     print('period days are $periodDays');
     print('ovulation day is $ovulationDay');
     print(widget.periodCycle - 14);
@@ -59,7 +60,6 @@ class _CalendarState extends State<Calendar> {
   void initState() {
     super.initState();
     _controller = CalendarController();
-
     periodCall();
   }
 
@@ -97,8 +97,12 @@ class _CalendarState extends State<Calendar> {
                 },
 
                 dayBuilder: (context, date, events) {
-                  final anyPeriodDay = periodDays.any((DateTime day) =>
-                      day.day == date.day && day.month == date.month);
+                  var anyPeriodDay = [
+                    for (var day in periodDays)
+                      if (date.difference(day).inDays % widget.periodCycle ==
+                          day.difference(periodDate))
+                        date
+                  ];
 
                   if (date == _selectedDay) {
                     return Container(
@@ -118,7 +122,7 @@ class _CalendarState extends State<Calendar> {
                         ),
                       ),
                     );
-                  } else if (anyPeriodDay) {
+                  } else if (anyPeriodDay.contains(date)) {
                     if (_controller.isToday(date)) {
                       return Container(
                         margin: const EdgeInsets.all(4.0),
