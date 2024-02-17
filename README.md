@@ -1,9 +1,8 @@
-# menstruating
+# Calendar api
 
-A Flutter project of a menstruation calendar.
+A Flutter project of a menstruation calendar. The api used to to provision  the calendar and I edited it to match the needs of² conceptualization.
 To see the application UI visit the UI folder.
 
-## Getting Started
+## Backend
 
-This project is not completed since it's merely an experimental project.
-I tried to include what I learned about both Flutter and Firebase database in this project.
+I used firebase as a database for personal informations.
